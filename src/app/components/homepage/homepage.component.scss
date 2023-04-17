@@ -1,0 +1,113 @@
+.body{
+    height: 132vh;
+}
+mat-form-field{
+    display: block;
+}   
+
+#searchBox{  
+    margin-right:auto;
+    margin-left: 5rem;
+    margin-top: 3rem;
+    font-weight: 900;
+}
+#searchBox>section{
+     margin-left: -4rem;
+}
+#addBtnPlus{
+    float: left;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+#addBtnPlus>i{
+    color:#0061FF ;
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+.outer{
+    margin-left: 4rem;
+    margin-top: 5rem;
+    margin-right: auto;
+    
+
+.container-fluid{
+    border:2px solid brown;
+}
+}
+
+.container-fluid>span>div>h1{
+    font-size: x-large;
+}
+
+.example-card{
+    
+    width:350px;
+    height: 250px;
+    margin-left: 35px;
+    margin-top: 10px;
+    margin-right: 16px;
+    border:2px solid rgb(210, 210, 210);     
+}
+
+  img{
+    max-width: 100px;
+    margin-left:10px;
+    margin-top: 5px;
+}
+  
+#editBtn{
+    font-size: x-large;
+    cursor: pointer;
+}
+
+mat-card{
+    display: inline-flex;
+    grid-template-columns: repeat(4, 1fr) !important;
+    margin-bottom: 5px;
+
+    mat-card-header{
+        border:2px solid rgb(210, 210, 210);
+        background-color: #0061FF;
+        padding: 10px;
+        color:white;
+        width:100%;
+       
+        span{
+            position: absolute;
+            right: 10px !important;
+            font-size: 20px;
+            
+        }
+        mat-card-title{
+          
+        }
+    }
+}
+
+
+mat-card-content{
+     div{
+        position: relative;
+        display: grid;
+        justify-content: flex-start;
+        margin-left: 123px;
+        top: -91px;
+    } 
+} 
+
+mat-card-actions{
+    button{
+        top: -67px;  
+    }
+}
+
+mat-paginator{
+    float: right;
+    margin-left: 6rem;   
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+

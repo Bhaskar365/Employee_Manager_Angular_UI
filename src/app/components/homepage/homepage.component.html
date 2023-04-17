@@ -1,0 +1,130 @@
+<div class="body">
+  <nav class="navbar navbar-expand-lg" style="background-color: #0153d6;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color:white;font-weight:100;">Employee Manager</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" style="color:white;font-weight:500;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color:white;font-weight:100;">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color:white;font-weight:100;">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid">
+    <span>
+      <div class="mt-2 p-4">
+        <h1 class="fa fa-user fa-lg"> &nbsp; Employees</h1>
+      </div>
+    </span>
+
+    <!--search-->
+    <div id="searchBox">
+      <section>
+        Search : <input type="text" [(ngModel)]="filterBy" placeholder="filterBy" (keyup)="filter()">
+      </section>
+      <span id="addBtnPlus"><i class="fa fa-plus-square fa-lg" data-bs-toggle="modal"
+          data-bs-target="#exampleModal"></i>&nbsp;Add New Employee</span>
+    </div>
+
+    <div class="outer">
+      <mat-card class="example-card" *ngFor="let x of filteredData" >
+        <mat-card-header>
+          <div></div>
+          <mat-card-title>{{x.name}}</mat-card-title>
+          <span id="editBtn">
+            <!-- <i class="fa fa-pencil-square-o" (click)="openDialog()" [routerLink]="['/dialog',x.id]"></i> -->
+             <i class="fa fa-pencil-square-o" (click)="openDialog(x.id)"></i> 
+            </span>
+        </mat-card-header>
+        <img mat-card-image
+          src="https://www.freepnglogos.com/uploads/old-women-png/old-woman-user-pictures-anna-litviniuk-icon-person-icon-22.png"
+          width="200" alt="old woman user pictures anna litviniuk icon person icon" alt="Employee">
+        <mat-card-content>
+          <div><strong>City:</strong> {{x.address.city}}</div>
+          <div><strong>Street:</strong> {{x.address.street}}</div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">VIEW</button>&nbsp;
+          <button mat-raised-button color="warn">DELETE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5,10,25,100]" aria-label="Select Page">
+  </mat-paginator>
+</div>
+
+
+<!-----ADD EMPLOYEE MODAL------>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Form</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!---ADD FORMS---->
+
+        <!----FIRST NAME INPUT----->
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>FIRST NAME</mat-label>
+            <input type="text" matInput [formControl]="userFirstNameControl" placeholder="Ex. Matt">
+            <mat-error *ngIf="!userFirstNameControl.hasError('required')">
+              Please enter first name
+            </mat-error>
+          </mat-form-field>
+
+          <!----FIRST NAME INPUT----->
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>LAST NAME</mat-label>
+              <input type="text" matInput [formControl]="userLastNameControl" placeholder="Ex. Damon">
+              <mat-error *ngIf="!userLastNameControl.hasError('required')">
+                Please enter last name
+              </mat-error>
+            </mat-form-field>
+          </form>
+
+          <!----EMAIL INPUT----->
+          <mat-form-field class="example-full" cellspacing="0">
+            <mat-label>EMAIL</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Address 2</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add New Employee</button>
+      </div>
+    </div>
+  </div>
+</div>
