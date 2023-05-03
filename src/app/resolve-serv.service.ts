@@ -11,7 +11,7 @@ export class ResolveServService implements Resolve<any>{
   constructor(private serv:ServiceService) { }
 
   resolve(router:ActivatedRouteSnapshot):Observable<any> | boolean| Promise<any>{
-    return this.serv.getValues();
+    return this.serv.getEmployees();
   }
    
 }

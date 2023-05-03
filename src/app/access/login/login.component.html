@@ -1,0 +1,21 @@
+<div class="outer mt-0">
+    <div class="container">
+        <!-- <div class="mt-3 text-center pt-3 font-weight-bold login">Login</div> -->
+        <div class="text-center mt-4 mb-3 bg-primary-subtle text-emphasis-primary">
+            <span class="fs-3">Login</span>
+        </div>
+        <mat-form-field appearance="outline" class="mt-4">
+            <mat-label><mat-icon>perm_identity</mat-icon>&nbsp;USER NAME</mat-label>
+            <input matInput placeholder="Enter Username">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label><mat-icon>lock</mat-icon>&nbsp;PASSWORD</mat-label>
+            <input matInput placeholder="Enter Password">
+        </mat-form-field>
+        <span class="btnBox">
+            <button class="w-100 mt-2 me-1 ms-0" mat-raised-button color="primary" 
+                (click)="login()">LOG IN</button>
+            <button class="w-100 mt-2 me-1 ms-0" mat-raised-button color="accent" routerLink="/register">Don't have an Account ? Click to Register</button>
+        </span>
+    </div>
+</div>

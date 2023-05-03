@@ -1,0 +1,120 @@
+.outer{
+    display: flex;
+    margin-top: 40px;
+    padding: 9rem;
+    height: 90vh;
+}
+
+.container{
+    border:2px solid rgb(207, 211, 182);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    width:450px;
+    height:380px;
+    color:rgb(0, 0, 0);
+}
+
+.container>.login{
+    
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.btnBox>div>strong
+{
+    color: blue;
+    cursor: pointer;
+}
+
+mat-form-field{
+    display:flex;
+    mat-label{
+        mat-icon{
+            font-size: x-large;
+            text-align: center;
+            vertical-align: text-bottom;
+        }
+    }
+}
+
+button{
+    border-radius:5px;
+}
+
+@media screen and (max-width:300px){
+    .outer{
+        
+        margin-left: 1px;
+        margin-top: 10px;
+        width:auto;
+    }
+
+    .container>.login{
+        
+        font-weight: bolder;
+        display: block;
+        text-align:center;
+        font-size: large;
+    }
+
+    mat-form-field{
+        margin-top: 10px;
+        mat-label{
+            font-size: small;
+            input{
+                border:2px solid gold !important;
+               
+            }
+        }
+    }
+
+    
+
+}
+
+
+// .outer{
+    
+//     background-image: url("https://getwallpapers.com/wallpaper/full/d/2/8/607521.jpg");
+//     background-repeat: round;
+// }
+
+// .container{
+//     position: relative;
+//     height:90vh;
+//     margin:3rem auto;
+//     padding:3rem;
+//     color: white;
+//     font-size: x-large;
+//     font-weight: 200;
+// }
+
+// .container>span{
+   
+//     display: block;
+//     text-align: left;
+//     margin-bottom: 1rem;
+// }
+
+// mat-form-field{
+//             border:2px solid red;
+//             display:block;
+//             width: 300px;
+//             justify-content: center;
+            
+            
+//             mat-label{
+//                 display: block;
+//                 justify-content: center !important;
+//                 color:white;
+//             }
+//     }
+
+// mat-form-field{
+//     input{
+//         border:2px solid green !important;
+//         display: block !important;
+       
+//     }    
+// }
+

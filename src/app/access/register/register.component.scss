@@ -1,0 +1,20 @@
+.outerBody
+{
+    border:2px solid red;
+    height:100vh;
+}
+.container{
+    border:2px solid rgb(176, 189, 175);
+    position: relative;
+    top:3rem !important;
+    border-radius: 1rem;
+    height: 700px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.regisText{
+    border:2px solid rgb(133, 127, 127);
+    background-color:rgb(190, 185, 185);
+    border-radius: 5px;
+}
