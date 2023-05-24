@@ -5,6 +5,44 @@ mat-form-field{
     display: block;
 }   
 
+#home:hover{
+    color:rgb(255, 255, 255);
+    background-color:rgb(4, 15, 94);
+}
+
+#login{
+    color:white;
+    font-weight:500;
+}
+
+#login:hover{
+    color:rgb(24, 23, 24);
+    background-color:rgb(0, 255, 200);
+}
+
+#about{
+    color:white;
+    font-weight:500;
+}
+
+#about:hover{
+    color:rgb(24, 23, 24);
+    background-color:rgb(0, 255, 200);
+}
+
+#register{
+    color:white;
+    font-weight:500;
+    // display: block;
+    // margin-right: 1rem;
+    // text-decoration: none;
+    // padding:2px;
+}
+#register:hover{
+    color:rgb(24, 23, 24);
+    background-color:rgb(0, 255, 200);
+}
+
 #searchBox{  
     margin-right:auto;
     margin-left: 5rem;
