@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+h2 {
+    margin-top: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: center;
+    padding-top: 9px;
+    background-color: #0e3880;
+}
+
+h2>p {
+    color:white;
+    font-size: medium;
+}
+
+mat-dialog-content{
+    div {
+        margin-top: 8px;
+        font-size: small;
+    }
+    div>p{
+        margin-top: 4px;
+        font-family: cursive;
+        font-size: larger;
+    }
+}
+
+mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 8px;
+}

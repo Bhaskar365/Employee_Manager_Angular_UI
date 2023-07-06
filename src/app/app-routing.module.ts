@@ -5,11 +5,13 @@ import { DialogBodyComponent } from './components/dialog-body/dialog-body.compon
 import { ResolveServService } from './resolve-serv.service';
 import { LoginComponent } from './access/login/login.component';
 import { RegisterComponent } from './access/register/register.component';
+import { AddEmployeeCompComponent } from './components/add-employee-comp/add-employee-comp.component';
 
 const routes: Routes = [
   { path:'homepage', component:HomepageComponent },
   { path: 'login', component: LoginComponent},
   { path: 'register', component:RegisterComponent },
+  { path: 'addEmployee', component: AddEmployeeCompComponent},
   { path:'', redirectTo: 'homepage' , pathMatch:'full'},
   
 ];

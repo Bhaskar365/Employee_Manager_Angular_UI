@@ -1,33 +1,46 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { CreateEmp } from '../components/models/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
 
-  // baseUrl = "https://jsonplaceholder.typicode.com/users";
+  APIUrl= "https://localhost:7208/api/Employee";
+  APIUrlById= "https://localhost:7208/api/Employee";
+  APICreate = "https://localhost:7208/api/Employee/Create";
+  updateAPI = "https://localhost:7208/api/Employee";
 
   constructor(private http:HttpClient) { }
 
-  // getValues(){
-  //   return this.http.get(this.baseUrl);
-  // }
+  getAllEmployees(){
+    return this.http.get(this.APIUrl + '/GetAll');
+  }
 
-  // getData(id:any){
-  //   return this.http.get("https://jsonplaceholder.typicode.com/users/" + id);
-  // }
+  getEmployeeById(id:any){
+    return this.http.get(`${this.APIUrlById}/${id}`);
+  }
+
+  createNewEmployee(form:CreateEmp){
+    return this.http.post(this.APICreate,form);
+  }
+
+  updateEmployees(id:any,data:any) : Observable<Object>{
+    const url = `${this.updateAPI}/${id}`;
+    return this.http.put(url,data);
+  }
+
+  deleteEmployeeById(id:any){
+      return this.http.delete(`${this.APIUrl}/${id}`);
+  }
+
 
   addEmployees(data:any):Observable<any>
   {
     return this.http.post("http://localhost:3000/UsersValues",data);
-  }
-
-  updateEmployees(data:any,id:number):Observable<any>
-  {
-    return this.http.put(`http://localhost:3000/UsersValues/${id}`,data);
   }
 
   getEmployees():Observable<any>{

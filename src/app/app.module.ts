@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,21 @@ import { NotFoundComponent } from './access/not-found/not-found.component';
 import { EditPageComponent } from './components/edit-page/edit-page.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ViewComponentComponent } from './components/view-component/view-component.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatViewDialogBoxComponent } from './components/mat-view-dialog-box/mat-view-dialog-box.component';
+import { AddEmployeeCompComponent } from './components/add-employee-comp/add-employee-comp.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatEditDialogCompComponent } from './components/mat-edit-dialog-comp/mat-edit-dialog-comp.component';
+import { MatDeleteDialogComponent } from './components/mat-delete-dialog/mat-delete-dialog.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -33,6 +48,10 @@ import { ViewComponentComponent } from './components/view-component/view-compone
     NotFoundComponent,
     EditPageComponent,
     ViewComponentComponent,
+    MatViewDialogBoxComponent,
+    AddEmployeeCompComponent,
+    MatEditDialogCompComponent,
+    MatDeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +69,18 @@ import { ViewComponentComponent } from './components/view-component/view-compone
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDividerModule,
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

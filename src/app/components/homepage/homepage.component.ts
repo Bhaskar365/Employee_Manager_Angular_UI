@@ -9,6 +9,10 @@ import { EditPageComponent } from '../edit-page/edit-page.component';
 import { ViewComponentComponent } from '../view-component/view-component.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { BehaviorSubject } from 'rxjs';
+import { MatViewDialogBoxComponent } from '../mat-view-dialog-box/mat-view-dialog-box.component';
+import { AddEmployeeCompComponent } from '../add-employee-comp/add-employee-comp.component';
+import { MatEditDialogCompComponent } from '../mat-edit-dialog-comp/mat-edit-dialog-comp.component';
+import { MatDeleteDialogComponent } from '../mat-delete-dialog/mat-delete-dialog.component';
 
 @Component({
   selector: 'app-homepage',
@@ -17,53 +21,148 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class HomepageComponent implements OnInit{
 
+  pageOfItems?: any;
+
   obs$:BehaviorSubject<any> = new BehaviorSubject<any>('');
 
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  userFirstNameControl = new FormControl('', [Validators.required]);
-  userLastNameControl = new FormControl('', [Validators.required]);
+  // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  // userFirstNameControl = new FormControl('', [Validators.required]);
+  // userLastNameControl = new FormControl('', [Validators.required]);
   
   @ViewChild(MatPaginator) paginator!:MatPaginator;
 
   data1:any;
   filteredData:any[]=[];
   filterBy:any;
+  employeeDataFromAPI:any;
+  employeeData_API_Filtered:any;
+  employeeData_Sliced_Data:any;
+
+  employeesPerPage:number=4;
+  public selectedPage = 1;
+  employees:any[] = [];
+
   constructor(private serv:ServiceService,
               private matDialog:MatDialog,
               private router:Router,
               ) { }
 
-  ngOnInit(){
-      this.getEmployeeList();
+  ngOnInit()
+  {
+      this.getAllEmployeeData();
   }
+
+  getAllEmployeeData()
+  {
+      this.serv.getAllEmployees().subscribe(res=>{
+        
+        this.employeeDataFromAPI = res;
+        this.employeeData_API_Filtered = [...this.employeeDataFromAPI];
+        this.employeeDataFromAPI.paginator = this.paginator;
+        let pageIndex = (this.selectedPage - 1) * this.employeesPerPage;
+        this.employeeData_Sliced_Data = this.employeeData_API_Filtered.slice(pageIndex,this.employeesPerPage);
+      })
+  }
+
+  //
+  getEmployeeById(id:any){
+    const dialogRef = this.matDialog.open(MatViewDialogBoxComponent,
+      {
+        data:{ id },
+      });
+      dialogRef.afterClosed().subscribe(res=>{
+        res = res.data;
+      });
+  } 
+
+  addNewEmployee(){
+    const _dialogRef = this.matDialog.open(AddEmployeeCompComponent);
+  }
+
+//VIEW DETAILS
+  editEmployeeDetails(value:any){
+      const dialogR = this.matDialog.open(MatEditDialogCompComponent,
+      {
+        data:{value},
+      });
+      dialogR.afterClosed().subscribe(res=>{
+        res = res.data;
+      })
+  }
+
+  deleteEmployeeById(value:any) {
+    const _dialogR = this.matDialog.open(MatDeleteDialogComponent,{
+      data : { value },
+    });
+    _dialogR.afterClosed().subscribe(res=>{
+      res = res.data;
+    });
+  }
+
+
+  //-----------------------------PAGINATOR LOGIC CODE----------------------------------------------//
+  //------------------------------------BEGIN------------------------------------------------------//
+
+  //change page size of paginator
+  changePageSize(event:Event){
+      
+      const newSize = (event.target as HTMLInputElement).value;
+      this.employeesPerPage = Number(newSize);
+      this.changePage(1);
+  }
+
+  //get paginator page number
+  get pageNumbers():number[] {
+    // return Array(Math.ceil(this.filteredData.length/this.employeesPerPage))
+    //     .fill(0).map((x,i)=>i+1);
+
+    return Array(Math.ceil(this.employeeData_API_Filtered.length/this.employeesPerPage))
+        .fill(0).map((x,i)=>i+1);
+        
+  }
+
+ //change paginator page 
+  changePage(page:any) {
+      this.selectedPage = page;
+      this.slicedEmployees();
+  }
+
+   //sliced paginator data 
+  slicedEmployees(){
+    // let pageIndex = (this.selectedPage - 1) * this.employeesPerPage;
+    // let endIndex = (this.selectedPage - 1) * this.employeesPerPage + this.employeesPerPage;
+    // this.employees = [];
+    // this.employees = this.filteredData.slice(pageIndex,endIndex);
+  
+    let pageIndex = (this.selectedPage - 1) * this.employeesPerPage;
+    let endIndex = (this.selectedPage - 1) * this.employeesPerPage + this.employeesPerPage;
+    this.employeeData_Sliced_Data = [];
+    this.employeeData_Sliced_Data = this.employeeData_API_Filtered.slice(pageIndex,endIndex);
+  }
+
+  //---------------------------------------END----------------------------------------------//
 
   //Filter Code
     filter() {
-      this.filteredData = [...this.data1.filter((user:any) => user.name.toLowerCase().includes(this.filterBy))];
-      }
+      // this.filteredData = [...this.data1.filter((user:any) => user.name.toLowerCase().includes(this.filterBy))];
+      // this.employees = this.filteredData;
 
-      //ADD NEW EMPLOYEE
-      addNewEmployee(){
-        const dialogRef = this.matDialog.open(DialogBodyComponent);
-        dialogRef.afterClosed().subscribe({
-          next:(val) =>{
-            console.log(val)
-            if(val){
-              this.getEmployeeList();
-            }
-          }
-        })
-      }
+      this.employeeData_API_Filtered = [...this.employeeDataFromAPI.filter((user:any) => user.name.toLowerCase().includes(this.filterBy))];
+      this.employeeData_Sliced_Data = this.employeeData_API_Filtered;
+
+    }
 
      //GET EMPLOYEE
-      getEmployeeList(){
-        this.serv.getEmployees().subscribe((res:any)=>{
-          this.data1 = res; 
-          console.log(res);
-          this.filteredData = [...this.data1];
-          this.data1.paginator = this.paginator;
-        })
-      }
+      // getEmployeeList(){
+      //   this.serv.getEmployees().subscribe((res:any)=>{
+      //     this.data1 = res; 
+      //     console.log(res);
+      //     this.filteredData = [...this.data1];
+      //     this.data1.paginator = this.paginator;
+      //     let pageIndex = (this.selectedPage - 1) * this.employeesPerPage;
+      //     this.employees = this.filteredData.slice(pageIndex,this.employeesPerPage);
+      //   })
+      // }
 
       //EDIT EMPLOYEE
        editBoxDialog(data:any){
@@ -78,7 +177,7 @@ export class HomepageComponent implements OnInit{
                 
             if(val)
             {
-              this.getEmployeeList();
+              // this.getEmployeeList();
             }
           }
         })
@@ -88,7 +187,7 @@ export class HomepageComponent implements OnInit{
       deleteEmployees(id:number){
           this.serv.deleteEmployees(id).subscribe({
             next:(res)=>{
-              this.getEmployeeList();
+              // this.getEmployeeList();
             },
             error:(err:any)=>{
               console.log(err)
@@ -111,7 +210,7 @@ export class HomepageComponent implements OnInit{
             console.log(456)
             console.log(id);
             if(val){
-              this.getEmployeeList();
+              // this.getEmployeeList();
             }
           }
          })

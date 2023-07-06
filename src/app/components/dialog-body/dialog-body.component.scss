@@ -1,12 +1,33 @@
 .outerBody{
-    // border:2px solid red;
+    
     position: relative;
     margin-top: 1rem;
+    // border:2px solid red;
 }
 
 .outerBody>h3{
-    margin-left: 1rem;
+    background-image: linear-gradient(to bottom, #002bff, #03041a);
+    color: white;
+    font-family: cursive;
+    border-radius: 0px;
+    height: 40px;
+    width: auto;
+    font-size: smaller;
+    top: -18px;
+    padding: 10px;
+    position: relative;
 }
+
+mat-form-field{
+    // border:2px solid darkorange;    
+}
+
+mat-form-field{    
+        // border:2px solid red;
+        font-size: xx-small;
+
+}
+
 #action{
     padding: 1rem;
     padding-right: 0rem;

@@ -1,152 +1,169 @@
-.body{
-    height: 132vh;
-}
-mat-form-field{
-    display: block;
-}   
+@media screen and (min-width:250px) {
 
-#home:hover{
-    color:rgb(255, 255, 255);
-    background-color:rgb(4, 15, 94);
-}
+    .container-fluid>span>#divBox {
 
-#login{
-    color:white;
-    font-weight:500;
-}
+        position: relative;
+        width: 100%;
+        margin-top: 1.1rem;
+        font-size: xx-small;
+    }
 
-#login:hover{
-    color:rgb(24, 23, 24);
-    background-color:rgb(0, 255, 200);
-}
+    #searchBox {
+        float: right;
+        margin-top: -3.2px;
+        margin-right: -17px;
+    }
 
-#about{
-    color:white;
-    font-weight:500;
-}
+    #searchBox>section>input{ 
+        width: 60%;
+    }
 
-#about:hover{
-    color:rgb(24, 23, 24);
-    background-color:rgb(0, 255, 200);
-}
 
-#register{
-    color:white;
-    font-weight:500;
-    // display: block;
-    // margin-right: 1rem;
-    // text-decoration: none;
-    // padding:2px;
-}
-#register:hover{
-    color:rgb(24, 23, 24);
-    background-color:rgb(0, 255, 200);
-}
+    #addBtnPlus {
+        font-size: xx-small;
+        border: 1px solid rgb(186, 171, 171);
+        border-radius: 5px;
+        padding: 3px;
+    }
 
-#searchBox{  
-    margin-right:auto;
-    margin-left: 5rem;
-    margin-top: 3rem;
-    font-weight: 900;
-}
-#searchBox>section{
-     margin-left: -4rem;
-}
-#addBtnPlus{
-    float: left;
-    margin-left: 1rem;
-    margin-top: 2rem;
-}
+    #addBtnPlus:hover{
+        background-color: rgb(14, 252, 14);
+        cursor: pointer;
+        
+    }
 
-#addBtnPlus>i{
-    color:#0061FF ;
-    font-size: xx-large;
-    cursor: pointer;
-}
+    img {
+        width: 21%;
+        margin-left: 10px;
+        margin-top: 9px;
+    }
 
-.outer{
-    margin-left: 4rem;
-    margin-top: 5rem;
-    margin-right: auto;
-    
+    mat-card-actions {
+        margin-left: -1px;
+        #viewBtn,
+        #deleteBtn {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            min-height: 20px;
+            vertical-align: top;
+            font-size: 10px;
+            padding: 0 0;
+            margin: 0;
+        }
+    }
 
-.container-fluid{
-    border:2px solid brown;
-}
-}
+    mat-card-content {
+        font-size: xx-small;
+        font-family: cursive;
+        margin-top: 5px;
+        letter-spacing: 2px;
+        line-height: 15px;
+    }
 
-.container-fluid>span>div>h1{
-    font-size: x-large;
-}
+    mat-card {
+        
+        margin-top: 12px;
+        width: 70%;
 
-.example-card{
-    
-    width:350px;
-    height: 250px;
-    margin-left: 35px;
-    margin-top: 10px;
-    margin-right: 16px;
-    border:2px solid rgb(210, 210, 210);     
-}
-
-  img{
-    max-width: 100px;
-    margin-left:10px;
-    margin-top: 5px;
-}
-  
-#editBtn{
-    font-size: x-large;
-    cursor: pointer;
-}
-
-mat-card{
-    display: inline-flex;
-    grid-template-columns: repeat(4, 1fr) !important;
-    margin-bottom: 5px;
-
-    mat-card-header{
-        border:2px solid rgb(210, 210, 210);
-        background-color: #0061FF;
-        padding: 10px;
-        color:white;
-        width:100%;
-       
-        span{
+        mat-icon{
             position: absolute;
-            right: 10px !important;
-            font-size: 20px;
+            right: -2px;
+            float: right;
+            margin-top: 9px;
+            color: white;
+            font-size: smaller;
+        }
+
+        mat-card-header {
+
+            border: 2px solid #156bf8;
+            height: 2rem;
+            border-radius: 3px;
+            margin-left: -1px;
+            background-color: #156bf8;
+            color: white;
+
+            mat-card-title {
+                
+                font-size: xx-small;
+                margin-top: -18px;
+                margin-left: -6px;
+                letter-spacing: 2px;  
+                font-family: cursive;
+            }
             
         }
-        mat-card-title{
-          
+    }
+
+    mat-toolbar {
+        background-image: linear-gradient(180deg, #1264ef, #000 100%, #ff8100 0);
+        position: relative;
+        display: flex;
+        color: white;
+        padding-left: 0px;
+        padding-right: 0px;
+
+        .user-info {
+            position: absolute;
+            right: 12px;
+        }
+
+        mat-toolbar-row {
+            span {
+                font-family: sans-serif;
+                font-size: x-small;
+                display: block;
+            }
         }
     }
-}
 
+    mat-sidenav-container {
 
-mat-card-content{
-     div{
-        position: relative;
-        display: grid;
-        justify-content: flex-start;
-        margin-left: 123px;
-        top: -91px;
-    } 
-} 
+        height: 90vh;
+        width: 100%;
 
-mat-card-actions{
-    button{
-        
-        top: -67px;  
+        mat-sidenav {
+            color: white;
+            background-color: #182b3a;
+            background-image: linear-gradient(315deg, #008eff 0%, #00060a 74%);
+            font-size: smaller;
+            width: 25%;
+            text-align: center;
+
+            mat-list {
+                font-size: smaller;
+            }
+        }
     }
-}
 
-mat-paginator{
-    float: right;
-    margin-left: 6rem;   
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-}
+    #paginator{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 11px;
+        margin-bottom: 1.2rem;
+    }
 
+    #paginator>.col-md-12>.form-inline {
+        margin-right: 6px;
+        font-family: ui-sans-serif;
+    }
+
+    #paginator>.col-md-12>.form-inline>.form-control {
+        font-size: small;
+    }
+
+    #paginator>.col-md-12>.btn-group {
+        height: 34px;
+        font-family: fantasy;
+    }
+
+    ::ng-deep .mat-mdc-paginator-outer-container{
+       font-size: xx-small;
+    }
+
+    ::ng-deep .mat-mdc-paginator-range-actions{
+        font-size: xx-small;
+    }
+
+}
