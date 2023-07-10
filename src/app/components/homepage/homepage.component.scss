@@ -36,15 +36,16 @@
 
     #addBtnPlus {
         font-size: xx-small;
+        background-image: linear-gradient(rgb(142, 0, 142),rgb(52, 52, 223));
+        color:white;
         border: 1px solid rgb(186, 171, 171);
         border-radius: 5px;
         padding: 3px;
     }
 
     #addBtnPlus:hover{
-        background-color: rgb(14, 252, 14);
-        cursor: pointer;
-        
+        background-image: linear-gradient(#fb105a ,#681185);
+        cursor: pointer; 
     }
 
     img {
@@ -201,7 +202,7 @@
     #searchBox {
         font-size: 11px;
         margin-top: -5.5px;
-        margin-right: -34px;
+        margin-right: -20px;
     }
 
     #searchBox:hover{
@@ -214,11 +215,13 @@
     }
 
     #employeeTag{
-        font-size: 16px;
+        font-size: 13px;
+        margin-left: 1rem;
     }
 
     #addBtnPlus{
-        font-size: 12px;
+        font-size: 10px;
+        margin-left: 0.7rem;
     }
 
     mat-card {
@@ -232,12 +235,12 @@
     }
 
     mat-card:hover{
-        transform:scale(1.05);
+        background-color: rgb(170, 255, 0);
     }
 
     #editBtn>mat-icon:hover{
         transform: scale(1.1);
-       color:#ff8100;
+       color:#ca1246;
     }
 
     #paginator {
@@ -267,10 +270,6 @@
         }
     }
 
-    mat-card:hover{
-        transform:scale(1.05);
-    }
-
     #paginator {
         margin-top: 2rem;
     }
@@ -280,9 +279,9 @@
 @media screen and (min-width:550px) {
 
     #searchBox {
-        font-size: 16px;
+        font-size: 11px;
         margin-top: -5px;
-        margin-right: -33px;
+        margin-right: -23px;
     }
 
     mat-toolbar {
@@ -295,13 +294,15 @@
         }
     }
 
-    #employeeTag {
-        font-size: 18px;
+    #employeeTag{
+        font-size: 15px;
         margin-top: 2.9px;
+        margin-left: 1rem;
     }
 
-    #addBtnPlus {
-        font-size: 15px;
+    #addBtnPlus{
+        font-size: 12px;
+        margin-left: 0.7rem;
         position: relative;
         display: inline-block;
         margin-top: 4px;
@@ -317,10 +318,6 @@
         margin-top: 25px;
     }
 
-    mat-card:hover{
-        transform:scale(1.05);
-    }
-
     #paginator {
         margin-top: 2rem;
     }
@@ -329,15 +326,15 @@
 @media screen and (min-width:624px) {
 
     #searchBox {
-        font-size: 16.5px;
+        font-size: 11px;
         margin-top: -5px;
-        margin-right: -33px;
+        margin-right: -15px;
     }
 
     mat-toolbar {
         mat-toolbar-row {
             span {
-                font-size: 14px;
+                font-size: 12px;
                 margin-left: 4px;
                 font-family: cursive;
             }
@@ -345,19 +342,19 @@
     }
 
     #icon{
-        font-size: 27px;
+        font-size: 22px;
     }
 
     #employeeTag {
-        font-size: 22px;
+        font-size: 16px;
         margin-top: 0.9px;
     }
 
     #addBtnPlus {
-        font-size: 16px;
+        font-size: 12px;
         position: relative;
         display: inline-block;
-        margin-top: 4px;   
+        margin-top: 4px;
     }
     
     mat-card {
@@ -378,15 +375,15 @@
 @media screen and (min-width:850px) {
 
     #searchBox {
-        font-size: 17px;
+        font-size: 12px;
         margin-top: -5px;
-        margin-right: -33px;
+        margin-right: -14px;
     }
 
     mat-toolbar {
         mat-toolbar-row {
             span {
-                font-size: 15px;
+                font-size: 12px;
                 margin-left: 4px;
                 font-family: cursive;
             }
@@ -403,5 +400,212 @@
         margin-top: 25px
     }
 
+    #icon{
+        font-size: 23px;
+    }
 
+    #employeeTag {
+        font-size: 17px;
+        margin-top: 0.9px;
+    }
+
+    #addBtnPlus {
+        font-size: 13px;
+        position: relative;
+        display: inline-block;
+        margin-top: 10px;  
+    }
 }
+
+@media screen and (min-width:900px) {
+
+    #searchBox {
+        font-size: 13px;
+        margin-top: -5px;
+        margin-right: -13px;
+    }
+
+    mat-toolbar {
+        mat-toolbar-row {
+            span {
+                font-size: 13px;
+                margin-left: 4px;
+                font-family: cursive;
+            }
+        }
+    }
+
+    mat-card {
+        border: 1px solid #bcb8b8;
+        box-shadow: 3px 5px 6px 0px #210d0d;
+        position: relative;
+        display: inline-block;
+        width: 47.5%;
+        margin-right: 17px;
+        margin-top: 25px
+    }
+
+    #icon{
+        font-size: 24px;
+    }
+
+    #employeeTag {
+        font-size: 18px;
+        margin-top: 0.9px;
+    }
+
+    #addBtnPlus {
+        font-size: 14px;
+        position: relative;
+        display: inline-block;
+        padding: 1px 9px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width:1075px) {
+
+    #searchBox {
+        font-size: 13px;
+        margin-top: -2px;
+        margin-right: -11px;
+        
+    }
+
+    mat-toolbar {
+        mat-toolbar-row {
+            span {
+                font-size: 14px;
+                margin-left: 5px;
+                font-family: cursive;
+            }
+        }
+    }
+
+    mat-card {
+        border: 1px solid #bcb8b8;
+        box-shadow: 3px 5px 6px 0px #210d0d;
+        position: relative;
+        display: inline-block;  
+        width: 31%;
+        margin-right: 15px;
+        margin-top: 25px;
+
+    }
+
+    #icon{
+        font-size: 24px;
+    }
+
+    #employeeTag {
+        font-size: 19px;
+        margin-top: 5.9px;
+        margin-left: 1rem;
+    }
+
+    #addBtnPlus {
+        font-size: 13px;
+        position: relative;
+        display: inline-block;
+        padding: 1px 9px;
+        margin-top: 21px;
+        margin-left: 0.6rem;
+    }
+}
+
+@media screen and (min-width:1215px) {
+    
+    #searchBox {
+        font-size: 15px;
+        margin-top: -2px;
+        margin-right: -11px;
+    }
+
+    mat-toolbar {
+        mat-toolbar-row {
+            span {
+                font-size: 14px;
+                margin-left: 6px;
+                font-family: cursive;
+            }
+        }
+    }
+
+    mat-card {
+        border: 1px solid #bcb8b8;
+        box-shadow: 3px 5px 6px 0px #210d0d;
+        position: relative;
+        display: inline-block;  
+        width: 30.5%;
+        margin-right: 17px;
+        margin-top: 25px;
+    }
+
+    #icon{
+        font-size: 25px;
+    }
+
+    #employeeTag {
+        font-size: 20px;
+        margin-top: 5.9px;
+        margin-left: 1rem;
+    }
+
+    #addBtnPlus {
+        font-size: 14px;
+        position: relative;
+        display: inline-block;
+        padding: 1px 9px;
+        margin-top: 21px;
+        margin-left: 0.6rem;
+    }
+}
+
+@media screen and (min-width:1315px) {
+
+    #searchBox {
+        font-size: 15px;
+        margin-top: -2px;
+        margin-right: -11px;
+    }
+
+    mat-toolbar {
+        mat-toolbar-row {
+            span {
+                font-size: 14px;
+                margin-left: 6px;
+                font-family: cursive;
+            }
+        }
+    }
+
+    mat-card {
+        border: 1px solid #bcb8b8;
+        box-shadow: 3px 5px 6px 0px #210d0d;
+        position: relative;
+        display: inline-block;  
+        width: 22%;
+        margin-right: 17px;
+        margin-top: 25px;
+    }
+
+    #icon{
+        font-size: 25px;
+    }
+
+    #employeeTag {
+        font-size: 20px;
+        margin-top: 5.9px;
+        margin-left: 1rem;
+    }
+
+    #addBtnPlus {
+        font-size: 14px;
+        position: relative;
+        display: inline-block;
+        padding: 1px 9px;
+        margin-top: 21px;
+        margin-left: 0.6rem;
+    }
+}
+    

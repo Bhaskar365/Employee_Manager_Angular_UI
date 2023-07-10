@@ -35,7 +35,7 @@ export class HomepageComponent implements OnInit{
   employeeData_API_Filtered:any;
   employeeData_Sliced_Data:any;
 
-  employeesPerPage:number=4;
+  employeesPerPage:number=8;
   public selectedPage = 1;
   employees:any[] = [];
 
