@@ -97,7 +97,7 @@
             height: 2rem;
             border-radius: 3px;
             margin-left: -1px;
-            background-color: #156bf8;
+            background-color: #303F9F;
             color: white;
 
             mat-card-title {
@@ -235,7 +235,9 @@
     }
 
     mat-card:hover{
-        background-color: rgb(170, 255, 0);
+        // background-color: rgb(170, 255, 0);
+        background-image: linear-gradient(45deg,#f64e86  ,#4557f4);
+        color:white;
     }
 
     #editBtn>mat-icon:hover{
@@ -606,6 +608,19 @@
         padding: 1px 9px;
         margin-top: 21px;
         margin-left: 0.6rem;
+    }
+
+    mat-card {
+        mat-card-header {
+            mat-card-title {
+                font-size:smaller;
+            }
+        }
+    }
+
+    mat-card-content{
+        font-size: smaller;
+        margin-top: 10px;
     }
 }
     
