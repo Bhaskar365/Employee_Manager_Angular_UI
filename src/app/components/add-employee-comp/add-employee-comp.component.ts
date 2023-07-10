@@ -8,6 +8,7 @@ import { CreateEmp } from '../models/models';
 import { catchError } from 'rxjs';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-employee-comp',
@@ -66,12 +67,27 @@ export class AddEmployeeCompComponent implements OnInit{
       this.serv.createNewEmployee(this.x).pipe(catchError((err)=>{
         alert(err);
         this.dialogRef.close();
+        //sweetalert error notif
+        Swal.fire({
+          title: 'Create Unsuccessful',
+          text: 'Error Creating New Employee!',
+          icon: 'error',
+          width:'800px',
+          timer: 1500,
+          timerProgressBar: true
+        });
         return err;
       })).subscribe(res=> {
-          console.log(res);    
-          alert(res)
           this.dialogRef.close();
-          this.toast.success({detail:'Employee Added', summary: 'Add Successful ', duration:5000})
+           //sweetalert success notif
+           Swal.fire({
+            title: 'Added Successfully',
+            text: 'Adding New Employee Successfully ',
+            icon: 'success',
+            width:'800px',
+            timer:1500,
+            timerProgressBar:true,
+        })
           this.router.navigate(['/homepage']);
           window.location.reload();    
         }); 

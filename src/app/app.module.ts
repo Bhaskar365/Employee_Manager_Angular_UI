@@ -37,6 +37,7 @@ import { MatEditDialogCompComponent } from './components/mat-edit-dialog-comp/ma
 import { MatDeleteDialogComponent } from './components/mat-delete-dialog/mat-delete-dialog.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgToastModule } from 'ng-angular-popup';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { NgToastModule } from 'ng-angular-popup';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
-    NgToastModule
+    NgToastModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

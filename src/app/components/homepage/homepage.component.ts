@@ -13,6 +13,7 @@ import { MatViewDialogBoxComponent } from '../mat-view-dialog-box/mat-view-dialo
 import { AddEmployeeCompComponent } from '../add-employee-comp/add-employee-comp.component';
 import { MatEditDialogCompComponent } from '../mat-edit-dialog-comp/mat-edit-dialog-comp.component';
 import { MatDeleteDialogComponent } from '../mat-delete-dialog/mat-delete-dialog.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-homepage',
@@ -25,10 +26,6 @@ export class HomepageComponent implements OnInit{
 
   obs$:BehaviorSubject<any> = new BehaviorSubject<any>('');
 
-  // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  // userFirstNameControl = new FormControl('', [Validators.required]);
-  // userLastNameControl = new FormControl('', [Validators.required]);
-  
   @ViewChild(MatPaginator) paginator!:MatPaginator;
 
   data1:any;
@@ -98,7 +95,6 @@ export class HomepageComponent implements OnInit{
       res = res.data;
     });
   }
-
 
   //-----------------------------PAGINATOR LOGIC CODE----------------------------------------------//
   //------------------------------------BEGIN------------------------------------------------------//

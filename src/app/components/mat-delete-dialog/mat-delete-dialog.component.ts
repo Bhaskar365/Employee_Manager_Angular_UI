@@ -4,6 +4,7 @@ import { ServiceService } from 'src/app/services/service.service';
 import { catchError } from 'rxjs'; 
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-mat-delete-dialog',
@@ -29,11 +30,25 @@ export class MatDeleteDialogComponent implements OnInit {
   deleteEmployee(x:any)
   {
     this.serv.deleteEmployeeById(x).pipe(catchError((err)=>{
-      this.toast.error({detail: 'Error deleting employee',summary: 'Delete not successful',duration:5000})
+      Swal.fire({
+        title: 'Delete Unsuccessful',
+        text: 'Error Deleting Employee!',
+        icon: 'error',
+        width:'800px',
+        timer: 1500,
+        timerProgressBar: true
+      });
       return err;
     })).subscribe(res=>{
       console.log(res);
-      this.toast.success({detail:'Employee Deleted',summary:'Delete Successful',duration:5000});
+      Swal.fire({
+        title: 'Delete Successfully',
+        text: 'Deleting Employee Successfully ',
+        icon: 'success',
+        width:'800px',
+        timer:1500,
+        timerProgressBar:true,
+    })
       window.location.reload();
       this.router.navigate(['/homepage']);
     })

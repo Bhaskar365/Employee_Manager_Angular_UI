@@ -8,16 +8,31 @@
         font-size: xx-small;
     }
 
+    #paginatorList{
+        cursor:pointer;
+    }
+
+    #editBtn>mat-icon {
+        cursor:pointer;
+    }
+
+    #settingIcon {
+        cursor: pointer;
+    }
+
+    #icon {
+        cursor: pointer;
+    }
+
     #searchBox {
         float: right;
         margin-top: -3.2px;
-        margin-right: -17px;
+        margin-right: -17px;       
     }
 
     #searchBox>section>input{ 
         width: 60%;
     }
-
 
     #addBtnPlus {
         font-size: xx-small;
@@ -92,7 +107,6 @@
                 letter-spacing: 2px;  
                 font-family: cursive;
             }
-            
         }
     }
 
@@ -114,6 +128,7 @@
                 font-family: sans-serif;
                 font-size: x-small;
                 display: block;
+                font-family: cursive;
             }
         }
     }
@@ -165,5 +180,228 @@
     ::ng-deep .mat-mdc-paginator-range-actions{
         font-size: xx-small;
     }
+
+    #paginator {
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (min-width:400px) {
+   
+    mat-toolbar {
+        mat-toolbar-row {
+            span {
+               font-size: 11px;
+               margin-left: 4px;
+               font-family: cursive;
+            }
+        }
+    }
+
+    #searchBox {
+        font-size: 11px;
+        margin-top: -5.5px;
+        margin-right: -34px;
+    }
+
+    #searchBox:hover{
+        color:#082d6c;
+    }
+
+    #searchBox>section>input:hover{
+        border:2px solid rgb(4, 35, 146);
+        transform: scale(1.04);
+    }
+
+    #employeeTag{
+        font-size: 16px;
+    }
+
+    #addBtnPlus{
+        font-size: 12px;
+    }
+
+    mat-card {
+        border: 1px solid #bcb8b8;
+        box-shadow: 3px 5px 6px 0px #210d0d;
+        width: 70%;
+        display: inline-block;
+        margin-right: 23px;
+        left: 13px;
+        margin-top: 25px;
+    }
+
+    mat-card:hover{
+        transform:scale(1.05);
+    }
+
+    #editBtn>mat-icon:hover{
+        transform: scale(1.1);
+       color:#ff8100;
+    }
+
+    #paginator {
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (min-width:490px) {
+
+    mat-card {
+        border: 1px solid #bcb8b8;
+        box-shadow: 3px 5px 6px 0px #210d0d;
+        width: 45%;
+        display: inline-block;
+        margin-right: 23px;
+        left: 13px;
+        margin-top: 25px;
+    }
+
+    mat-toolbar {
+        mat-toolbar-row {
+            span {
+               font-size: 13px;
+               margin-left: 4px;
+               font-family: cursive;
+            }
+        }
+    }
+
+    mat-card:hover{
+        transform:scale(1.05);
+    }
+
+    #paginator {
+        margin-top: 2rem;
+    }
+
+}
+
+@media screen and (min-width:550px) {
+
+    #searchBox {
+        font-size: 16px;
+        margin-top: -5px;
+        margin-right: -33px;
+    }
+
+    mat-toolbar {
+        mat-toolbar-row {
+            span {
+               font-size: 13px;
+               margin-left: 4px;
+               font-family: cursive;
+            }
+        }
+    }
+
+    #employeeTag {
+        font-size: 18px;
+        margin-top: 2.9px;
+    }
+
+    #addBtnPlus {
+        font-size: 15px;
+        position: relative;
+        display: inline-block;
+        margin-top: 4px;
+    }
+
+    mat-card {
+        border: 1px solid #bcb8b8;
+        box-shadow: 3px 5px 6px 0px #210d0d;
+        width: 44%;
+        display: inline-block;
+        margin-right: 23px;
+        left: 13px;
+        margin-top: 25px;
+    }
+
+    mat-card:hover{
+        transform:scale(1.05);
+    }
+
+    #paginator {
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (min-width:624px) {
+
+    #searchBox {
+        font-size: 16.5px;
+        margin-top: -5px;
+        margin-right: -33px;
+    }
+
+    mat-toolbar {
+        mat-toolbar-row {
+            span {
+                font-size: 14px;
+                margin-left: 4px;
+                font-family: cursive;
+            }
+        }
+    }
+
+    #icon{
+        font-size: 27px;
+    }
+
+    #employeeTag {
+        font-size: 22px;
+        margin-top: 0.9px;
+    }
+
+    #addBtnPlus {
+        font-size: 16px;
+        position: relative;
+        display: inline-block;
+        margin-top: 4px;   
+    }
+    
+    mat-card {
+        border: 1px solid #bcb8b8;
+        box-shadow: 3px 5px 6px 0px #210d0d;
+        position: relative;
+        display: inline-block;
+        width: 46%;
+        margin-right: 16px;
+        margin-top: 25px
+    }
+
+    #paginator {
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (min-width:850px) {
+
+    #searchBox {
+        font-size: 17px;
+        margin-top: -5px;
+        margin-right: -33px;
+    }
+
+    mat-toolbar {
+        mat-toolbar-row {
+            span {
+                font-size: 15px;
+                margin-left: 4px;
+                font-family: cursive;
+            }
+        }
+    }
+
+    mat-card {
+        border: 1px solid #bcb8b8;
+        box-shadow: 3px 5px 6px 0px #210d0d;
+        position: relative;
+        display: inline-block;
+        width: 47%;
+        margin-right: 17px;
+        margin-top: 25px
+    }
+
 
 }
