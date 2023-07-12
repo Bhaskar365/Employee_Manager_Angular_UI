@@ -82,27 +82,27 @@ export class DialogBodyComponent implements OnInit {
 
 
   onFormSubmit(){
-    if(this.empForm.valid){
-      if(this.data){
-        this.serv.updateEmployees(this.data.id,this.empForm.value).subscribe({
-          next:(res:any)=>{
-            this._dialogRef.close();
-          },
-          error:(err:any)=>{
-            console.log(err);
-          },
-        });
-      }
-      else{
-        this.serv.addEmployees(this.empForm.value).subscribe({
-          next:(res:any)=>{
-            this._dialogRef.close(true);
-          },
-          error:(err:any)=>{
-            console.log(err);
-          }
-        })
-      }
-    }
+    // if(this.empForm.valid){
+    //   if(this.data){
+    //     this.serv.updateEmployees(this.data.id,this.empForm.value).subscribe({
+    //       next:(res:any)=>{
+    //         this._dialogRef.close();
+    //       },
+    //       error:(err:any)=>{
+    //         console.log(err);
+    //       },
+    //     });
+    //   }
+    //   else{
+    //     this.serv.addEmployees(this.empForm.value).subscribe({
+    //       next:(res:any)=>{
+    //         this._dialogRef.close(true);
+    //       },
+    //       error:(err:any)=>{
+    //         console.log(err);
+    //       }
+    //     })
+    //   }
+    // }
   }
 }

@@ -38,6 +38,7 @@ import { MatDeleteDialogComponent } from './components/mat-delete-dialog/mat-del
 import { MatDividerModule } from '@angular/material/divider';
 import { NgToastModule } from 'ng-angular-popup';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     AddEmployeeCompComponent,
     MatEditDialogCompComponent,
     MatDeleteDialogComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,

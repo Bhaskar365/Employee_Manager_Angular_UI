@@ -45,27 +45,27 @@ export class ViewComponentComponent implements OnInit{
   }
 
   onFormSubmit(){
-    if(this.viewForm.valid){
-      if(this.data){
-        this.serv.updateEmployees(this.data.id,this.viewForm.value).subscribe({
-          next:(res:any)=>{
-            this._dialogRef.close();
-          },
-          error:(err:any)=>{
-            console.log(err);
-          },
-        });
-      }
-      else{
-        this.serv.addEmployees(this.viewForm.value).subscribe({
-          next:(res:any)=>{
-            this._dialogRef.close(true);
-          },
-          error:(err:any)=>{
-            console.log(err);
-          }
-        })
-      }
-    }
+    // if(this.viewForm.valid){
+    //   if(this.data){
+    //     this.serv.updateEmployees(this.data.id,this.viewForm.value).subscribe({
+    //       next:(res:any)=>{
+    //         this._dialogRef.close();
+    //       },
+    //       error:(err:any)=>{
+    //         console.log(err);
+    //       },
+    //     });
+    //   }
+    //   else{
+    //     this.serv.addEmployees(this.viewForm.value).subscribe({
+    //       next:(res:any)=>{
+    //         this._dialogRef.close(true);
+    //       },
+    //       error:(err:any)=>{
+    //         console.log(err);
+    //       }
+    //     })
+    //   }
+    // }
   }
 }

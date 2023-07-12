@@ -17,7 +17,9 @@ export class ServiceService {
   constructor(private http:HttpClient) { }
 
   getAllEmployees(){
-    return this.http.get(this.APIUrl + '/GetAll');
+    return this.http.get(this.APIUrl + '/GetAll').pipe(catchError((err)=>{
+      return err;
+    }));
   }
 
   getEmployeeById(id:any){
@@ -38,22 +40,22 @@ export class ServiceService {
   }
 
 
-  addEmployees(data:any):Observable<any>
-  {
-    return this.http.post("http://localhost:3000/UsersValues",data);
-  }
+  // addEmployees(data:any):Observable<any>
+  // {
+  //   return this.http.post("http://localhost:3000/UsersValues",data);
+  // }
 
-  getEmployees():Observable<any>{
-    return this.http.get('http://localhost:3000/UsersValues');
-  }
+  // getEmployees():Observable<any>{
+  //   return this.http.get('http://localhost:3000/UsersValues');
+  // }
 
-  deleteEmployees(id:number):Observable<any>{
-    return this.http.delete(`http://localhost:3000/UsersValues/${id}`);
-  }
+  // deleteEmployees(id:number):Observable<any>{
+  //   return this.http.delete(`http://localhost:3000/UsersValues/${id}`);
+  // }
 
-  viewEmployee(id:number){
-    return this.http.post(`http://localhost:3000/UsersValues/`,id);
-  }
+  // viewEmployee(id:number){
+  //   return this.http.post(`http://localhost:3000/UsersValues/`,id);
+  // }
 
  
 

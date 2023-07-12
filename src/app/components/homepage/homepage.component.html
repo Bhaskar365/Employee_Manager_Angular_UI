@@ -1,5 +1,5 @@
+<div class="fullPage" [hidden]="isLoading">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0"> 
 <mat-toolbar>
     <mat-toolbar-row>
       <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button  color="primary"> -->
@@ -34,7 +34,7 @@
   </mat-toolbar>
   
   <mat-sidenav-container class="example-container">
-    
+   
     <mat-sidenav #drawer mode="side">
       <!-- <mat-sidenav #drawer mode="over"> -->
        <mat-list  routerLinkActive="/">Home</mat-list>
@@ -42,8 +42,8 @@
        <mat-list routerLink="#">Report 2</mat-list>
     </mat-sidenav>
 
-   
-    <mat-sidenav-content id="mainTable">
+    <mat-sidenav-content id="mainTable" *ngIf="employeeDataFromAPI">
+      
       <!---main content---->
       <div class="body">
         <div class="container-fluid">
@@ -91,11 +91,10 @@
                   (click)="deleteEmployeeById(x)" matTooltip="Click to delete">DELETE</button>
               </mat-card-actions>
 
-            </mat-card>
+            </mat-card>  
           </div> 
-
         </div>
-    
+
 <!--------CUSTOM PAGINATION--------->
       <div class="row" id="paginator">
         <div class="col-md-12 d-flex justify-content-center">
@@ -125,4 +124,8 @@
 
      </mat-sidenav-content>
   </mat-sidenav-container>
+</div>
 
+<div [hidden]="!isLoading">
+  <span class="loader"></span>
+</div>
