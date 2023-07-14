@@ -1,1 +1,71 @@
-<p>employee-add-new works!</p>
+<mat-card class="example-card" id="body">
+    <mat-card-header>
+        <div>New Employee Form</div>
+    </mat-card-header>
+
+<mat-dialog-content>
+
+    <form [formGroup]="addForm" (ngSubmit)="formSubmit()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>    
+            <input matInput formControlName="Name" placeholder="Enter Name.."/>
+            <!-- <mat-label matError *ngIf="Name_Val?.invalid && (Name_Val?.touched || Name_Val?.dirty)">Required</mat-label> -->
+        </mat-form-field>
+        
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>    
+            <input matInput formControlName="Email" placeholder="Enter Email.."/>
+        </mat-form-field>    
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Gender</mat-label>    
+            <mat-select formControlName="Gender">
+                <mat-option *ngFor="let gender of ['Male','Female','Other']" [value]="gender">
+                  {{gender}}
+                </mat-option>
+              </mat-select>   
+        </mat-form-field> 
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>    
+            <input matInput formControlName="Address" placeholder="Enter Address.."/>
+        </mat-form-field>  
+
+        <mat-form-field appearance="outline">
+            <mat-label>Phone</mat-label>    
+            <input matInput formControlName="Phone" placeholder="Enter Phone.."/>
+        </mat-form-field> 
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Joining Date</mat-label>
+            <input matInput [matDatepicker]="picker" 
+                formControlName="JoiningDate" (dateInput)="joiningDate(picker)" 
+                    [(ngModel)]="this.modifiedAddJoiningDate">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Created Date</mat-label>
+            <input matInput [matDatepicker]="picker2" 
+                formControlName="CreatedOn" (dateInput)="createdDate(picker)"
+                [(ngModel)]="this.modifiedAddCreatedDate">
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <div class="btnDiv">
+            <button type="submit" mat-raised-button color="primary">Submit</button>&nbsp;
+            <button type="reset" mat-raised-button color="warn" id="ClearBtn">Clear</button>
+        </div>
+        
+    </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    
+</mat-dialog-actions>
+</mat-card>

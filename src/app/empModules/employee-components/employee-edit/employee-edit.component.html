@@ -1,1 +1,99 @@
-<p>employee-edit works!</p>
+<!-- <h2 mat-dialog-title><strong>Edit Employee</strong></h2> -->
+<h2>Edit Employee</h2>
+
+<mat-dialog-content [formGroup]="editForm" >
+  
+    <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput placeholder="ID" readonly="userID" formControlName="userID" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name" required>
+        <span class="form-text text-danger" 
+            *ngIf="Name_Func?.errors?.['required'] && (Name_Func?.touched || Name_Func?.dirty)"></span>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email" required>
+        <span class="form-text text-danger" 
+            *ngIf="Email_Func?.errors?.['required'] && (Email_Func?.touched || Email_Func?.dirty)"></span>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <input matInput placeholder="Gender" formControlName="gender" required>
+        <span class="form-text text-danger" 
+            *ngIf="Gender_Func?.errors?.['required'] && (Gender_Func?.touched || Gender_Func?.dirty)"></span>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Address" formControlName="address" required>
+        <span class="form-text text-danger" 
+            *ngIf="Address_Func?.errors?.['required'] && (Address_Func?.touched || Address_Func?.dirty)"></span>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="Phone" formControlName="phone" required>
+        <span class="form-text text-danger" 
+            *ngIf="Phone_Func?.errors?.['required'] && (Phone_Func?.touched || Phone_Func?.dirty)"></span>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Joining Date</mat-label>
+            <input matInput [matDatepicker]="picker" 
+            formControlName="joiningDate" (dateChange)="joiningDate(picker)">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <span class="form-text text-danger" 
+            *ngIf="JoiningDate_Func?.errors?.['required'] 
+                && (JoiningDate_Func?.touched || JoiningDate_Func?.dirty)"></span>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Created On</mat-label>
+       <input matInput [matDatepicker]="picker2" 
+            formControlName="createdOn" (dateChange)="createdDate(picker2)">    
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <span class="form-text text-danger" 
+            *ngIf="CreatedOn_Func?.errors?.['required'] 
+                && (CreatedOn_Func?.touched || CreatedOn_Func?.dirty)"></span>
+    </mat-form-field>
+
+ <!-- <mat-form-field>
+        <mat-label>Joining Date</mat-label>
+        <input matInput [matDatepicker]="picker" 
+            formControlName="joiningDate" 
+            (dateInput)="joiningDate(picker)" 
+            [(ngModel)]="this.modifiedEditedJoiningDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <span class="form-text text-danger" 
+            *ngIf="JoiningDate_Func?.errors?.['required'] 
+                && (JoiningDate_Func?.touched || JoiningDate_Func?.dirty)"></span>
+    </mat-form-field> -->
+
+    <!-- <mat-form-field>
+        <mat-label>Created On</mat-label>
+        <input matInput [matDatepicker]="picker2" 
+            formControlName="createdOn" 
+            (dateInput)="createdDate(picker2)"
+            [(ngModel)]="this.modifiedEditedCreatedDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker2" ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <span class="form-text text-danger" 
+            *ngIf="CreatedOn_Func?.errors?.['required'] 
+                && (CreatedOn_Func?.touched || CreatedOn_Func?.dirty)"></span>
+    </mat-form-field> -->
+ 
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="accent" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="editForm.invalid" (click)="editFormSubmit()">Submit</button>
+</mat-dialog-actions>

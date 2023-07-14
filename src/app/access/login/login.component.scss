@@ -1,120 +1,98 @@
-.outer{
-    display: flex;
-    margin-top: 40px;
-    padding: 9rem;
-    height: 90vh;
-}
+@media screen and (min-width:200px) {
 
-.container{
-    border:2px solid rgb(207, 211, 182);
-    border-radius: 1rem;
-    margin-top: 1rem;
-    width:450px;
-    height:380px;
-    color:rgb(0, 0, 0);
-}
-
-.container>.login{
-    
-    font-weight: 600;
-    font-size: x-large;
-}
-
-.btnBox>div>strong
-{
-    color: blue;
-    cursor: pointer;
-}
-
-mat-form-field{
-    display:flex;
-    mat-label{
-        mat-icon{
-            font-size: x-large;
-            text-align: center;
-            vertical-align: text-bottom;
-        }
-    }
-}
-
-button{
-    border-radius:5px;
-}
-
-@media screen and (max-width:300px){
-    .outer{
-        
-        margin-left: 1px;
-        margin-top: 10px;
-        width:auto;
-    }
-
-    .container>.login{
-        
-        font-weight: bolder;
+    .loader {
         display: block;
-        text-align:center;
-        font-size: large;
+        width: 48px;
+        top: 40%;
+        left: 44%;
+        height: 48px;
+        border: 10px solid #000000;
+        border-radius: 50%;
+        position: fixed;
+        z-index: 11111;
+        transform: rotate(45deg);
+        box-sizing: border-box;
+      }
+      .loader::before {
+        content: "";
+        position: absolute;
+        box-sizing: border-box;
+        inset:-10px;
+        border-radius: 50%;
+        border:10px solid #FF3D00;
+        animation: prixClipFix 2s infinite linear;
+      }
+  
+      @keyframes prixClipFix {
+          0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+          25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+          50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+          75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+          100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+      }
+        
+   
+
+    .body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
     }
 
-    mat-form-field{
-        margin-top: 10px;
-        mat-label{
-            font-size: small;
-            input{
-                border:2px solid gold !important;
-               
+    mat-card {
+        border: 2px solid #d2d2d2;
+        justify-content: center;
+        padding: 1px;
+        border-radius: 4px;
+        margin-left: 5px;
+        margin-right: 5px;
+        top: 24%;
+
+        mat-card-content {
+
+            color: white;
+            padding: 5px;
+            margin-top: 3px;
+
+            mat-card-header {
+                background-color: #283593;
+                justify-content: center;
+                padding: 1px;
+                border-radius: 4px;
+                margin-bottom: 1rem;
             }
         }
+
+        .text-danger {
+            padding: 0px;
+        }
+
+        form {
+            padding: 4px;
+            margin-top: 5px;
+        }
+
+        mat-form-field {
+            width: 100%;
+            display: flex;
+            margin-top: 6px;
+        }
+
+        #btnBox>button {
+            position: relative;
+            display: flex;
+            margin-top: 1rem;
+            width: 100%;
+            font-size: x-small;
+            margin-top: 5px;
+        }
     }
-
-    
-
 }
 
 
-// .outer{
-    
-//     background-image: url("https://getwallpapers.com/wallpaper/full/d/2/8/607521.jpg");
-//     background-repeat: round;
-// }
-
-// .container{
-//     position: relative;
-//     height:90vh;
-//     margin:3rem auto;
-//     padding:3rem;
-//     color: white;
-//     font-size: x-large;
-//     font-weight: 200;
-// }
-
-// .container>span{
-   
-//     display: block;
-//     text-align: left;
-//     margin-bottom: 1rem;
-// }
-
-// mat-form-field{
-//             border:2px solid red;
-//             display:block;
-//             width: 300px;
-//             justify-content: center;
-            
-            
-//             mat-label{
-//                 display: block;
-//                 justify-content: center !important;
-//                 color:white;
-//             }
-//     }
-
-// mat-form-field{
-//     input{
-//         border:2px solid green !important;
-//         display: block !important;
-       
-//     }    
-// }
-
+@media screen and (min-width:600px) {
+    mat-card {
+        max-width: 50% !important;
+        left: 25%;
+    }
+}

@@ -9,10 +9,10 @@ import { CreateEmp } from '../components/models/models';
 })
 export class ServiceService {
 
-  APIUrl= "https://localhost:7208/api/Employee";
-  APIUrlById= "https://localhost:7208/api/Employee";
-  APICreate = "https://localhost:7208/api/Employee/Create";
-  updateAPI = "https://localhost:7208/api/Employee";
+  APIUrl= "https://localhost:7212/api/Employee";
+  APIUrlById= "https://localhost:7212/api/Employee";
+  APICreate = "https://localhost:7212/api/Employee/Create";
+  updateAPI = "https://localhost:7212/api/Employee";
 
   constructor(private http:HttpClient) { }
 

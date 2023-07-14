@@ -164,22 +164,22 @@ export class HomepageComponent implements OnInit {
   // }
 
   //EDIT EMPLOYEE
-  editBoxDialog(data: any) {
-    const dialogRef = this.matDialog.open(DialogBodyComponent, {
-      data,
-      width: '550px',
-      height: '550px',
-    });
+  // editBoxDialog(data: any) {
+  //   const dialogRef = this.matDialog.open(DialogBodyComponent, {
+  //     data,
+  //     width: '550px',
+  //     height: '550px',
+  //   });
 
-    dialogRef.afterClosed().subscribe({
-      next: (val) => {
+  //   dialogRef.afterClosed().subscribe({
+  //     next: (val) => {
 
-        if (val) {
-          // this.getEmployeeList();
-        }
-      }
-    })
-  }
+  //       if (val) {
+  //         // this.getEmployeeList();
+  //       }
+  //     }
+  //   })
+  // }
 
   // //DELETE EMPLOYEE
   // deleteEmployees(id:number){
