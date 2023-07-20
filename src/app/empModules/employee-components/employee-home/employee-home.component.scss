@@ -5,15 +5,16 @@
     display: inline-block;
     position: absolute;
     top: 43% !important;
-    left: 50% !important;
+    left: 44% !important;
     border: 3px solid;
     border-color: #000000 #000000 transparent transparent;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
-  }
-  .loader::after,
-  .loader::before {
-    content: '';  
+}
+
+.loader::after,
+.loader::before {
+    content: '';
     box-sizing: border-box;
     position: absolute;
     left: 0;
@@ -29,33 +30,75 @@
     box-sizing: border-box;
     animation: rotationBack 0.5s linear infinite;
     transform-origin: center center;
-  }
-  .loader::before {
+}
+
+.loader::before {
     width: 32px;
     height: 32px;
     border-color: #000000 #000000 transparent transparent;
     animation: rotation 1.5s linear infinite;
-  }
-      
-  @keyframes rotation {
+}
+
+@keyframes rotation {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  } 
-  @keyframes rotationBack {
+}
+
+@keyframes rotationBack {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(-360deg);
+        transform: rotate(-360deg);
     }
-  }
-      
-      
+}
+
+
 @media screen and (min-width:250px) {
+
+    #printerLogo {
+        display: inline-flex;
+        margin-top: 0px;
+        width: 22px;
+        margin-left: 6px;
+        margin-right: 4px;
+        border: 1px solid black;
+        width: 25px;
+        background-image: linear-gradient(111deg, #22b016, #0062ff);
+        border-radius: 6px;
+    }
+
+    #printerLogo:hover {
+        transform: scale(1.2);
+    }
+
+    #actionIcons {
+        display: inline-flex;
+    }
+
+    #excelLogo {
+        border-radius: 6px;
+        height: 22px;
+        display: inline-flex;
+        margin-top: 0px;
+        margin-left: 3px;
+        border: 1px solid black;
+        background-image: linear-gradient(45deg, #033dff, #16ff79);
+        width: 26px;
+        padding: 1px;
+    }
+
+    #excelLogo:hover {
+        transform: scale(1.1);
+        background-image: linear-gradient(45deg, #ff0000, #e100ff);
+    }
+
 
     .container-fluid>span>#divBox {
 
@@ -139,6 +182,7 @@
 
         margin-top: 12px;
         width: 70%;
+        box-shadow: 3px 5px 6px 0px #210d0d;
 
         mat-icon {
             position: absolute;
@@ -243,9 +287,21 @@
     #paginator {
         margin-top: 2rem;
     }
+
 }
 
 @media screen and (min-width:400px) {
+
+    #excelLogo {
+        border-radius: 6px;
+        height: 27px;
+        display: inline-flex;
+        margin-top: 0px;
+        margin-left: 5px;
+        background-image: linear-gradient(45deg, #033dff, #16ff79);
+        width: 30px;
+        padding: 1px 2px 1px;
+    }
 
     mat-toolbar {
         mat-toolbar-row {
@@ -310,6 +366,17 @@
 
 @media screen and (min-width:490px) {
 
+    #excelLogo {
+        border-radius: 6px;
+        height: 27px;
+        display: inline-flex;
+        margin-top: 0px;
+        margin-left: 5px;
+        background-image: linear-gradient(45deg, #033dff, #16ff79);
+        width: 30px;
+        padding: 1px 2px 1px;
+    }
+
     mat-card {
         border: 1px solid #bcb8b8;
         box-shadow: 3px 5px 6px 0px #210d0d;
@@ -337,6 +404,17 @@
 }
 
 @media screen and (min-width:550px) {
+
+    #excelLogo {
+        border-radius: 6px;
+        height: 29px;
+        display: inline-flex;
+        margin-top: 0px;
+        margin-left: 5px;
+        background-image: linear-gradient(45deg, #033dff, #16ff79);
+        width: 34px;
+        padding: 2px 0px 1px 3px;
+    }
 
     #searchBox {
         font-size: 11px;
@@ -434,6 +512,16 @@
 
 @media screen and (min-width:850px) {
 
+    #excelLogo {
+        border-radius: 6px;
+        height: 35px;
+        display: inline-flex;
+        margin-top: 0px;
+        margin-left: 5px;
+        background-image: linear-gradient(45deg, #033dff, #16ff79);
+        width: 40px;
+    }
+
     #searchBox {
         font-size: 12px;
         margin-top: -5px;
@@ -485,6 +573,17 @@
         margin-right: -13px;
     }
 
+    #excelLogo {
+        border-radius: 8px;
+        height: 38px;
+        display: inline-flex;
+        margin-top: 0px;
+        margin-left: 8px;
+        background-image: linear-gradient(45deg, #033dff, #16ff79);
+        width: 46px;
+        padding: 1px 1px 1px 2px;
+    }
+
     mat-toolbar {
         mat-toolbar-row {
             span {
@@ -518,18 +617,28 @@
         font-size: 14px;
         position: relative;
         display: inline-block;
-        padding: 1px 9px;
+        padding: 5px 10px;
         margin-top: 10px;
     }
 }
 
 @media screen and (min-width:1075px) {
 
+    #excelLogo {
+        border-radius: 8px;
+        height: 40px;
+        display: inline-flex;
+        margin-top: 0px;
+        margin-left: 8px;
+        background-image: linear-gradient(45deg, #033dff, #16ff79);
+        width: 50px;
+        padding: 1px 1px 1px 2px;
+    }
+
     #searchBox {
         font-size: 13px;
         margin-top: -2px;
         margin-right: -11px;
-
     }
 
     mat-toolbar {
@@ -564,16 +673,26 @@
     }
 
     #addBtnPlus {
-        font-size: 13px;
+        font-size: 14px;
         position: relative;
         display: inline-block;
-        padding: 1px 9px;
-        margin-top: 21px;
-        margin-left: 0.6rem;
+        padding: 5px 10px;
+        margin-top: 10px;
     }
 }
 
 @media screen and (min-width:1215px) {
+
+    #excelLogo {
+        border-radius: 8px;
+        height: 40px;
+        display: inline-flex;
+        margin-top: 0px;
+        margin-left: 8px;
+        background-image: linear-gradient(45deg, #033dff, #16ff79);
+        width: 50px;
+        padding: 1px 1px 1px 3px;
+    }
 
     #searchBox {
         font-size: 15px;
@@ -596,7 +715,7 @@
         box-shadow: 3px 5px 6px 0px #210d0d;
         position: relative;
         display: inline-block;
-        width: 30.5%;
+        width: 22%;
         margin-right: 17px;
         margin-top: 25px;
     }
@@ -644,7 +763,7 @@
         box-shadow: 3px 5px 6px 0px #210d0d;
         position: relative;
         display: inline-block;
-        width: 22%;
+        width: 22.5%;
         margin-right: 17px;
         margin-top: 25px;
     }
@@ -680,4 +799,22 @@
         font-size: smaller;
         margin-top: 10px;
     }
+}
+
+@media print {
+
+    .loader {
+        display: none;
+    }
+
+    button {
+        display: none;
+    }
+
+    mat-sidenav-container {
+        border: 2px solid red;
+
+    }
+
+
 }

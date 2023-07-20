@@ -29,6 +29,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSortModule } from '@angular/material/sort';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     EmployeeViewComponent,
     HeaderComponent,
     SideNavComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,

@@ -62,6 +62,7 @@ export class ApiServService {
   }
 
   removeToken() {
+    console.log('remove token done');
     localStorage.removeItem('access_token');
   }
 

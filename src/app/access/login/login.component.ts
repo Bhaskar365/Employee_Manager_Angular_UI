@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup , FormControl, Validators } from '@angular/forms';
 import { ApiServService } from 'src/app/services/api-serv.service';
 import { debounceTime, delay } from 'rxjs';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -65,6 +66,20 @@ export class LoginComponent implements OnInit {
         this.successMsg = false; 
         console.log(this.responseMsg);
         this.spinnerLoading = true;
+
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 1300,
+          timerProgressBar: true,
+        })
+        
+        Toast.fire({
+          icon: 'success',
+          title: 'Signed in successfully'
+        })
+
         setTimeout(()=>{
           this.spinnerLoading = false;
           this.router.navigateByUrl('employee/employee-home');

@@ -5,14 +5,14 @@
         <span id="headerText">&nbsp;Employee Management System</span>
         <div class="user-info">
             <span id="userSpan">
-                Hi, {{this.x.name}}
+                Hi, {{this.x}}
                 <i class="fa fa-user-circle-o" aria-hidden="true" id="settingIcon" [matMenuTriggerFor]="userName"></i>
                 <!-- </button> -->
             </span>
         </div>
 
         <mat-menu #userName="matMenu" id="settingMenu">
-            <button mat-menu-item>
+            <button mat-menu-item (click)="goToProfile()">
                 <mat-icon>account_box</mat-icon>
                 <span>Profile</span>
             </button>

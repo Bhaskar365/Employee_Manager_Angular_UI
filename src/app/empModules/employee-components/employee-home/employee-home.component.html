@@ -1,97 +1,97 @@
 <div class="fullPage" [hidden]="isLoading">
-<mat-sidenav-container class="example-container">
-   
+  <mat-sidenav-container class="example-container">
+
     <mat-sidenav #drawer mode="side">
       <!-- <mat-sidenav #drawer mode="over"> -->
-       <mat-list  routerLinkActive="/">Home</mat-list>
-       <mat-list routerLink="#">Report 1</mat-list>
-       <mat-list routerLink="#">Report 2</mat-list>
+      <mat-list routerLinkActive="/">Home</mat-list>
+      <mat-list routerLink="#">Report 1</mat-list>
+      <mat-list routerLink="#">Report 2</mat-list>
     </mat-sidenav>
 
-    <mat-sidenav-content id="mainTable" *ngIf="employeeDataFromAPI">    
-    <!---main content---->
-    <div class="body">
-      <div class="container-fluid">
-        <span>
-          <div id="divBox"> 
-                <h1 class="fa fa-user fa-lg" id="employeeTag"> &nbsp; Employees</h1>     
-                <div id="searchBox">
-                  <section>
-                    Search : <input type="text" 
-                      [(ngModel)]="filterBy" 
-                      (keyup)="filter()" matTooltip="Input to search">
-                  </section>
-                  </div>     
-          </div>
-        </span>
+    <mat-sidenav-content id="mainTable" *ngIf="employeeDataFromAPI">
+      <!---main content---->
+      <div class="body" id="content" #content>
+        <div class="container-fluid">
+          <span>
+            <div id="divBox">
+              <h1 class="fa fa-user fa-lg" id="employeeTag"> &nbsp; Employees</h1>
+              <div id="searchBox">
+                <section>
+                  Search : <input type="text" [(ngModel)]="filterBy" (keyup)="filter()" matTooltip="Input to search">
+                </section>
+              </div>
+            </div>
+          </span>
 
-        <span id="addBtnPlus" (click)="addNewEmployee()">
-          <i class="fa fa-plus-square fa-lg"></i>
-          &nbsp;
-          <strong matTooltip="Click to Add New">Add New Employee</strong>
-        </span>
-
-        <div class="outer"> 
-          <mat-card class="example-card" *ngFor="let x of employeeData_Sliced_Data">
-            <span id="editBtn">              
-              <mat-icon matTooltip="Click to edit" (click)="editEmployeeDetails(x)">edit</mat-icon>
+          <span id="addBtnPlus" (click)="addNewEmployee()">
+            <i class="fa fa-plus-square fa-lg"></i>
+            &nbsp;
+            <strong matTooltip="Click to Add New">Add New Employee</strong>
+          </span>
+          <div id="actionIcons">
+            <!-- <span id="pdfSpan" (click)="printPage()">
+              <img src="assets/printer.png" alt="printer_logo" id="printerLogo" matTooltip="Print" />
+            </span> -->
+            <span id="excelSpan" (click)="convertToExcel()">
+              <img src="assets/excel.png" alt="excel_logo" id="excelLogo" matTooltip="Download Excel" />
             </span>
-            <mat-card-header>
-              <mat-card-title>{{x.name}}</mat-card-title>
+          </div>
+
+          <div class="outer">
+            <mat-card class="example-card" *ngFor="let x of employeeData_Sliced_Data">
+              <span id="editBtn">
+                <mat-icon matTooltip="Click to edit" (click)="editEmployeeDetails(x)">edit</mat-icon>
+              </span>
+              <mat-card-header>
+                <mat-card-title>{{x.name}}</mat-card-title>
               </mat-card-header>
-          
-            <img mat-card-image src="assets/img2.png" width="200"
-              alt="old woman user pictures anna litviniuk icon person icon" alt="Employee">
 
-            <mat-card-content>
-              <div><strong>Address:</strong> {{x.address}}</div>
-              <div><strong>Gender:</strong> {{x.gender}}</div>
-            </mat-card-content>
+              <img mat-card-image src="assets/img2.png" width="200"
+                alt="old woman user pictures anna litviniuk icon person icon" alt="Employee">
 
-            <mat-card-actions>
-              <button id="viewBtn" mat-raised-button color="primary"
-                (click)="getEmployeeById(x)" matTooltip="Click to view">VIEW</button>&nbsp;&nbsp;
-              <button id="deleteBtn" 
-                mat-raised-button color="warn" 
-                (click)="deleteEmployeeById(x)" matTooltip="Click to delete">DELETE</button>
-            </mat-card-actions>
+              <mat-card-content>
+                <div><strong>Address:</strong> {{x.address}}</div>
+                <div><strong>Gender:</strong> {{x.gender}}</div>
+              </mat-card-content>
 
-          </mat-card>  
-        </div> 
-      </div>
+              <mat-card-actions>
+                <button id="viewBtn" mat-raised-button color="primary" (click)="getEmployeeById(x)"
+                  matTooltip="Click to view">VIEW</button>&nbsp;&nbsp;
+                <button id="deleteBtn" mat-raised-button color="warn" (click)="deleteEmployeeById(x)"
+                  matTooltip="Click to delete">DELETE</button>
+              </mat-card-actions>
 
-<!--------CUSTOM PAGINATION--------->
-    <div class="row" id="paginator">
-      <div class="col-md-12 d-flex justify-content-center">
-        <div class="form-inline float-left mr-1">
-          <select class="form-control" id="paginatorList" 
-                [value]="employeesPerPage" 
-                (change)="changePageSize($event)" 
-                matTooltip="Click to toggle page size">
-              <option value="8">8 Per Page</option>
-              <option value="15">15 Per Page</option>
-              <option value="40">40 Per Page</option>
-              <option value="70">70 Per Page</option>
-              <option value="100">100 Per Page</option>
-          </select>
+            </mat-card>
+          </div>
         </div>
 
-        <div class="btn-group float-right">
-          <button class="btn btn-outline-primary" 
-          *ngFor="let page of pageNumbers"
-            [class.active]="page === selectedPage"
-            (click)="changePage(page)" 
-            matTooltip="Toggle">{{page}}</button>
+        <!--------CUSTOM PAGINATION--------->
+        <div class="row" id="paginator">
+          <div class="col-md-12 d-flex justify-content-center">
+            <div class="form-inline float-left mr-1">
+              <select class="form-control" id="paginatorList" [value]="employeesPerPage"
+                (change)="changePageSize($event)" matTooltip="Click to toggle page size">
+                <option value="8">8 Per Page</option>
+                <option value="15">15 Per Page</option>
+                <option value="40">40 Per Page</option>
+                <option value="70">70 Per Page</option>
+                <option value="100">100 Per Page</option>
+              </select>
+            </div>
+
+            <div class="btn-group float-right">
+              <button class="btn btn-outline-primary" *ngFor="let page of pageNumbers"
+                [class.active]="page === selectedPage" (click)="changePage(page)" matTooltip="Toggle">{{page}}</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-   </mat-sidenav-content>
-</mat-sidenav-container>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
 
 <div [hidden]="!isLoading">
-<span class="loader"></span>
+  <span class="loader"></span>
 </div>
 <router-outlet></router-outlet>
