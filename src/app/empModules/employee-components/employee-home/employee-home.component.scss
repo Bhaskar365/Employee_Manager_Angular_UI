@@ -580,6 +580,14 @@
         width: 127px !important;
         height: 28px !important;
     }
+
+    #addBtnPlus {
+        font-size: 12px;
+        position: relative;
+        display: inline-block;
+        margin-top: 4px;
+        width: 147px;
+    }
 }
 
 @media screen and (min-width:694px) {
@@ -946,11 +954,17 @@
     }
 
     #addBtnPlus {
-        font-size: 14px;
+        font-size: 13px;
         position: relative;
         display: inline-block;
         padding: 5px 10px;
         margin-top: 10px;
+        width: 172px;
+    }
+
+    #excelSpan {
+        position: relative;
+        top: 8px;
     }
 }
 
@@ -969,12 +983,12 @@
 
     #excelLogo {
         border-radius: 8px;
-        height: 40px;
+        height: 30px;
         display: inline-flex;
         margin-top: 0px;
         margin-left: 8px;
         background-image: linear-gradient(45deg, #033dff, #16ff79);
-        width: 50px;
+        width: 37px;
         padding: 1px 1px 1px 3px;
     }
 
@@ -1021,6 +1035,7 @@
         padding: 1px 9px;
         margin-top: 21px;
         margin-left: 0.6rem;
+        width: 184px;
     }
 }
 

@@ -9,7 +9,7 @@
 
     mat-card-header {
         div {
-            font-size: 12px;
+            font-size: 13px;
         }
     }
 
@@ -34,7 +34,6 @@
     mat-dialog-content {
 
         padding: 15px;
-        // width: 98%;
         margin-left: 3px;
         margin-top: 4px;
 
@@ -47,7 +46,7 @@
 
     .btnDiv {
         margin-top: 1rem;
-        margin-bottom: -1rem !important;
+        margin-bottom: 0rem !important;
     }
 
     button {
@@ -67,7 +66,16 @@
 
     .btnDiv {
         margin-top: 1rem;
-        margin-bottom: -1rem !important;
+    }
+
+    mat-dialog-content mat-form-field {
+        font-size: xx-small;
+        margin-bottom: -4px;
+        margin-top: 6px;
+    }
+
+    .btnDiv > button {
+        width: 48%;
     }
 }
 
@@ -109,6 +117,16 @@
         padding: 3px;
         margin-bottom: -7px;
     }
+
+    mat-dialog-content mat-form-field {
+        font-size: xx-small;
+        margin-bottom: -4px;
+        margin-top: 15px;
+    }
+
+    .btnDiv> button {
+        width: 48.6%;
+    }
 }
 
 @media screen and (min-width:850px) {
@@ -137,6 +155,13 @@
         margin-bottom: -4px;
         margin-top: 6px;
     }
+
+    mat-label{
+        font-size: 16px;
+    }
+    .btnDiv {
+        margin-top: 1.3rem;
+    }
 }
 
 @media screen and (min-width:1000px) {
@@ -149,7 +174,7 @@
 
     #body {
         width: 447px !important;
-        height: 435px !important;
+        height: 402px !important;
     }
 
     mat-form-field {
@@ -177,7 +202,7 @@
 
     #body {
         width: 462px !important;
-        height: 441px !important;
+        height: 404px !important;
     }
 
     mat-form-field {
@@ -205,7 +230,7 @@
 
     #body {
         width: 465px !important;
-        height: 441px !important;
+        height: 408px !important;
     }
 
     mat-form-field {
