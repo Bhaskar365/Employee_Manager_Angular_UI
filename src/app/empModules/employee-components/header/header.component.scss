@@ -59,11 +59,11 @@
             font-size: x-large;
             cursor: pointer;
         }
-        #headerText{
-            font-size: medium;
-            margin-left: 5px;
-            cursor: pointer;
-        }
+        // #headerText{
+        //     font-size: medium;
+        //     margin-left: 5px;
+        //     cursor: pointer;
+        // }
         #userSpan{ 
             font-size: medium;
             margin-right: 5px;
@@ -90,6 +90,18 @@
      }
 }
 
+@media screen and (min-width:1200px) {
+
+    mat-toolbar{
+        #headerText { 
+            font-size: 13px !important;
+        }
+    
+        #userSpan{
+            font-size: 13px !important;
+        }
+    }
+
 mat-sidenav-container{
     mat-sidenav{
         mat-list:hover {
@@ -105,4 +117,6 @@ mat-sidenav-container{
 
 .mat-list-item-focus{
     background-color: rgb(255, 0, 106);
+}
+
 }

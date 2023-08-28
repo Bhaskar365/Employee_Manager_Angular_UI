@@ -1,24 +1,30 @@
 @media screen and (min-width:250px) {
+
     #body {
         box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        display: block;
+        width: 369px !important;
+        height: 378px !important;
+        max-width: 80vw;
+    }
+
+    mat-card-header {
+        div {
+            font-size: 12px;
+        }
     }
 
     .mat-mdc-card-header {
-
-        padding: 10px;
+        padding: 12px;
         text-align: center;
         position: relative;
-        border-radius: 4px;
-        margin-left: 7px;
-        margin-right: 7px;
-        margin-top: 7px;
+        border-radius: 3px;
+        margin-left: 6px;
+        margin-right: 6px;
+        margin-top: 5px;
+        margin-bottom: -15px;
         background-color: #0e3880;
         color: white;
         display: block;
-
     }
 
     mat-form-field {
@@ -27,18 +33,193 @@
 
     mat-dialog-content {
 
+        padding: 15px;
+        // width: 98%;
+        margin-left: 3px;
+        margin-top: 4px;
+
         mat-form-field {
             font-size: xx-small;
-            margin-bottom: -20px;
+            margin-bottom: -5px;
             margin-top: 6px;
         }
     }
 
     .btnDiv {
         margin-top: 1rem;
+        margin-bottom: -1rem !important;
     }
 
-    #ClearBtn{
-        width:50%;
+    button {
+        width: 47%;
     }
+}
+
+@media screen and (min-width:450px) {
+
+    #body {
+        box-sizing: border-box;
+        width: 363px !important;
+        height: 393px !important;
+        max-width: 80vw;
+        padding: 2px;
+    }
+
+    .btnDiv {
+        margin-top: 1rem;
+        margin-bottom: -1rem !important;
+    }
+}
+
+@media screen and (min-width:570px) {
+
+    mat-card-header {
+        div {
+            font-size: 16px;
+        }
+    }
+
+    #body {
+        box-sizing: border-box;
+        width: 399px !important;
+        height: 393px !important;
+        max-width: 80vw;
+        padding: 0px;
+    }
+
+    mat-form-field {
+        mat-label {
+            input {
+                border: 2px solid red;
+                font-size: large;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:650px) {
+
+    #body {
+        width: 374px !important;
+        height: 426px !important;
+    }
+
+    mat-form-field {
+        width: 50%;
+        padding: 3px;
+        margin-bottom: -7px;
+    }
+}
+
+@media screen and (min-width:850px) {
+
+    #body {
+        width: 431px !important;
+        height: 424px !important;
+    }
+
+    mat-form-field {
+        width: 50%;
+        margin-bottom: -4px;
+        margin-top: 6px;
+    }
+}
+
+@media screen and (min-width:910px) {
+
+    #body {
+        width: 439px !important;
+        height: 430px !important;
+    }
+
+    mat-form-field {
+        width: 50%;
+        margin-bottom: -4px;
+        margin-top: 6px;
+    }
+}
+
+@media screen and (min-width:1000px) {
+
+    mat-card-header {
+        div {
+            font-size: 17px;
+        }
+    }
+
+    #body {
+        width: 447px !important;
+        height: 435px !important;
+    }
+
+    mat-form-field {
+        width: 50%;
+        margin-bottom: -4px;
+        margin-top: 6px;
+    }
+
+    mat-dialog-content {
+        mat-form-field {
+            font-size: 13px;
+            margin-bottom: -3px;
+            margin-top: 6px;
+        }
+    }
+}
+
+@media screen and (min-width:1040px) {
+
+    mat-card-header {
+        div {
+            font-size: 18px;
+        }
+    }
+
+    #body {
+        width: 462px !important;
+        height: 441px !important;
+    }
+
+    mat-form-field {
+        width: 50%;
+        margin-bottom: -4px;
+        margin-top: 6px;
+    }
+
+    mat-dialog-content {
+        mat-form-field {
+            font-size: 14px;
+            margin-bottom: -3px;
+            margin-top: 6px;
+        }
+    }
+}
+
+@media screen and (min-width:1080px) {
+
+    mat-card-header {
+        div {
+            font-size: 19px;
+        }
+    }
+
+    #body {
+        width: 465px !important;
+        height: 441px !important;
+    }
+
+    mat-form-field {
+        width: 50%;
+        margin-bottom: -4px;
+        margin-top: 6px;
+    }
+
+    mat-dialog-content {
+        mat-form-field {
+            font-size: 14px;
+            margin-bottom: -3px;
+            margin-top: 6px;
+        }
+    }
+
 }

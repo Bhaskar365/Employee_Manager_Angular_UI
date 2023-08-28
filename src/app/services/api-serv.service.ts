@@ -13,7 +13,7 @@ export class ApiServService {
 
   ////// WEB-API LOGIN-SIGNUP FUNCTION STARTS /////////
 
-  authBaseUrl = "https://localhost:7212/api/Login/";
+  authBaseUrl = "https://localhost:7289/api/Login/";
 
   currentUser:BehaviorSubject<any> = new BehaviorSubject<any>(null);
   jwtService = new JwtHelperService();
@@ -72,10 +72,10 @@ export class ApiServService {
     /////////// WEB-API CRUD FUNCTION STARTS ///////////
 
 
-  APIUrl= "https://localhost:7212/api/Employee";
-  APIUrlById= "https://localhost:7212/api/Employee";
-  APICreate = "https://localhost:7212/api/Employee/Create";
-  updateAPI = "https://localhost:7212/api/Employee";
+  APIUrl= "https://localhost:7289/api/Employee";
+  APIUrlById= "https://localhost:7289/api/Employee";
+  APICreate = "https://localhost:7289/api/Employee/Create";
+  updateAPI = "https://localhost:7289/api/Employee";
 
   getAllEmployees(){
     return this.http.get(this.APIUrl + '/GetAll').pipe(catchError((err)=>{
@@ -99,8 +99,7 @@ export class ApiServService {
   deleteEmployeeById(id:any){
       return this.http.delete(`${this.APIUrl}/${id}`);
   }
-
-
+  
  /////////// WEB-API CRUD FUNCTION ENDS ///////////
 
 }

@@ -86,9 +86,12 @@
           </div>
         </div>
       </div>
-
     </mat-sidenav-content>
   </mat-sidenav-container>
+</div>
+
+<div id="noData" *ngIf="employeeDataFromAPI.length==0">
+  <p><i class="fa fa-meh-o" aria-hidden="true"></i>Oops! No data available.</p>
 </div>
 
 <div [hidden]="!isLoading">

@@ -26,7 +26,7 @@ export class EmployeeEditComponent implements OnInit {
     address: new FormControl('', [Validators.required]),
     phone: new FormControl('', [Validators.required]),
     joiningDate: new FormControl('', [Validators.required]),
-    createdOn: new FormControl('', [Validators.required]),
+    // createdOn: new FormControl('', [Validators.required]),
   })
 
 
@@ -95,9 +95,9 @@ export class EmployeeEditComponent implements OnInit {
     return this.editForm.get('joiningDate');
   }
 
-  get CreatedOn_Func() {
-    return this.editForm.get('createdOn');
-  }
+  // get CreatedOn_Func() {
+  //   return this.editForm.get('createdOn');
+  // }
 
   joiningDate(date1: any) {
     let x = date1._model.selection;
@@ -106,11 +106,11 @@ export class EmployeeEditComponent implements OnInit {
     console.log(y);
   }
 
-  createdDate(date2: any) {
-    let x1 = date2._model.selection;
-    let y1 = moment(x1).format('YYYY-MM-DD');
-    this.modifiedEditedCreatedDate = y1;
-    console.log(y1);
-  }
+  // createdDate(date2: any) {
+  //   let x1 = date2._model.selection;
+  //   let y1 = moment(x1).format('YYYY-MM-DD');
+  //   this.modifiedEditedCreatedDate = y1;
+  //   console.log(y1);
+  // }
 
 }

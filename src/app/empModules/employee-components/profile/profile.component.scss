@@ -1,0 +1,37 @@
+*{
+    font-family: cursive;
+}
+
+.example-card {
+    width: 93%;
+    margin-left: 10px;
+    margin-top: 11px;
+    box-shadow: 2px 3px 4px -1px;
+    border: 0.1px solid black;
+}
+
+.example-card {
+    mat-card-header {
+        text-align: center;
+        position: relative;
+        display: block;
+        padding: 3px;
+        background-color: #2261a5;
+        color: white;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+}
+
+mat-list{
+    mat-list-item{
+        div{
+            font-size: 12px;
+            font-weight: 600;
+            button{ 
+                font-size: 10px;
+            }
+        }
+           
+    }
+}

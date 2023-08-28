@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       this.loginForm.value.email,
       this.loginForm.value.password
     ]
-    ).subscribe((res:any) => {
+    ).subscribe((res:any) => { 
       console.log(res);
       this.failMsg = true; 
       if(res == 'Failure') 
@@ -54,6 +54,20 @@ export class LoginComponent implements OnInit {
         this.failMsg = false; 
         console.log(this.responseMsg);
         this.spinnerLoading = true;
+
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 1300,
+          timerProgressBar: true,
+        })
+        
+        Toast.fire({
+          icon: 'error',
+          title: 'Credentials Incorrect'
+        })
+
         setTimeout(()=>{
             this.spinnerLoading = false;
             window.location.reload();

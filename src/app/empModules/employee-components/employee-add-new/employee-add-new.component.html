@@ -10,13 +10,19 @@
         <mat-form-field appearance="outline">
             <mat-label>Full Name</mat-label>    
             <input matInput formControlName="Name" placeholder="Enter Name.."/>
-            <!-- <mat-label matError *ngIf="Name_Val?.invalid && (Name_Val?.touched || Name_Val?.dirty)">Required</mat-label> -->
+            <mat-error *ngIf="addForm.controls?.['Name']?.hasError('required')">
+                {{getNameErrorMessage()}}
+            </mat-error>
         </mat-form-field>
         
 
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>    
             <input matInput formControlName="Email" placeholder="Enter Email.."/>
+            <mat-error *ngIf="addForm.controls?.['Email']?.hasError('required') ||
+                addForm.controls?.['Email']?.hasError('email')">
+                {{getEmailErrorMessage()}}
+            </mat-error>
         </mat-form-field>    
         
         <mat-form-field appearance="outline">
@@ -26,16 +32,25 @@
                   {{gender}}
                 </mat-option>
               </mat-select>   
+              <mat-error *ngIf="addForm.controls?.['Gender']?.hasError('required')">
+                {{getGenderErrorMessage()}}
+            </mat-error>
         </mat-form-field> 
         
         <mat-form-field appearance="outline">
             <mat-label>Address</mat-label>    
             <input matInput formControlName="Address" placeholder="Enter Address.."/>
+            <mat-error *ngIf="addForm.controls?.['Address']?.hasError('required')">
+                {{getAddressErrorMessage()}}
+            </mat-error>
         </mat-form-field>  
 
         <mat-form-field appearance="outline">
             <mat-label>Phone</mat-label>    
             <input matInput formControlName="Phone" placeholder="Enter Phone.."/>
+            <mat-error *ngIf="addForm.controls?.['Phone']?.hasError('required')">
+                {{getPhoneErrorMessage()}}
+            </mat-error>
         </mat-form-field> 
         
         <mat-form-field appearance="outline">
@@ -45,19 +60,14 @@
                     [(ngModel)]="this.modifiedAddJoiningDate">
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>Created Date</mat-label>
-            <input matInput [matDatepicker]="picker2" 
-                formControlName="CreatedOn" (dateInput)="createdDate(picker)"
-                [(ngModel)]="this.modifiedAddCreatedDate">
-            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
+            <mat-hint>M/DD/YYYY</mat-hint>
+            <mat-error *ngIf="addForm.controls?.['JoiningDate']?.hasError('required')">
+                {{getJoiningDateErrorMessage()}}
+            </mat-error>
         </mat-form-field>
 
         <div class="btnDiv">
-            <button type="submit" mat-raised-button color="primary">Submit</button>&nbsp;
+            <button type="submit" mat-raised-button color="primary" [disabled]="addForm.invalid">Submit</button>&nbsp;
             <button type="reset" mat-raised-button color="warn" id="ClearBtn">Clear</button>
         </div>
         

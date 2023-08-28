@@ -16,7 +16,6 @@ import Swal from 'sweetalert2';
 export class EmployeeAddNewComponent implements OnInit{
 
   modifiedAddJoiningDate:any;
-  modifiedAddCreatedDate : any;
   x:any;
   employeeData:any;
 
@@ -27,7 +26,7 @@ export class EmployeeAddNewComponent implements OnInit{
       Address: new FormControl('', [Validators.required]),
       Phone : new FormControl('', [Validators.required]),
       JoiningDate : new FormControl('', [Validators.required]),
-      CreatedOn : new FormControl('', [Validators.required]),
+      // CreatedOn : new FormControl('', [Validators.required]),
   });
 
   constructor( private http:HttpClient,
@@ -46,13 +45,6 @@ export class EmployeeAddNewComponent implements OnInit{
     let y = moment(x).format('YYYY-MM-DD');
     this.modifiedAddJoiningDate = y;
     console.log(y);
-  }
-
-  createdDate(date2:any) {
-    let x1 = date2._model.selection;
-    let y1 = moment(x1).format('YYYY-MM-DD');
-    this.modifiedAddCreatedDate = y1;
-    console.log(y1);
   }
 
   formSubmit(){
@@ -113,7 +105,36 @@ export class EmployeeAddNewComponent implements OnInit{
     return this.addForm.get('JoiningDate');
   }
 
-  get CreatedOn_Val() {
-    return this.addForm.get('CreatedOn');
+  // get CreatedOn_Val() {
+  //   return this.addForm.get('CreatedOn');
+  // }
+
+  getNameErrorMessage(){
+    return this.addForm.controls?.['Name'].hasError('required') ? 'Enter Name' : '';
   }
+
+  getEmailErrorMessage(){
+    if (this.addForm.controls?.['Email'].hasError('required')) {
+      return 'Enter Email';
+    }
+
+    return this.addForm.controls?.['Email'].hasError('email') ? 'Not a valid email' : '';
+  }
+
+  getGenderErrorMessage(){
+    return this.addForm.controls?.['Gender'].hasError('required') ? 'Enter gender' : '';
+  }
+
+  getAddressErrorMessage(){
+    return this.addForm.controls?.['Address'].hasError('required') ? 'Enter address' : '';
+  }
+
+  getPhoneErrorMessage(){
+    return this.addForm.controls?.['Phone'].hasError('required') ? 'Enter phone' : '';
+  }
+
+  getJoiningDateErrorMessage(){
+    return this.addForm.controls?.['JoiningDate'].hasError('required') ? 'Enter joining date' : '';
+  }
+
 }

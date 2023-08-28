@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit{
 
   jwtHelperService = new JwtHelperService();
 
-  ngOnInit(){
+  ngOnInit() {
 
     let token = localStorage.getItem('access_token');
     let userInfo = token != null ? this.jwtHelperService.decodeToken(token):null;
@@ -56,5 +56,4 @@ export class HeaderComponent implements OnInit{
   goToProfile(){
     this.router.navigateByUrl('employee/user-profile');
   }
-
 }

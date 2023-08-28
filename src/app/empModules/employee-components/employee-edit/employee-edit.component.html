@@ -54,43 +54,6 @@
                 && (JoiningDate_Func?.touched || JoiningDate_Func?.dirty)"></span>
     </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Created On</mat-label>
-       <input matInput [matDatepicker]="picker2" 
-            formControlName="createdOn" (dateChange)="createdDate(picker2)">    
-        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-        <span class="form-text text-danger" 
-            *ngIf="CreatedOn_Func?.errors?.['required'] 
-                && (CreatedOn_Func?.touched || CreatedOn_Func?.dirty)"></span>
-    </mat-form-field>
-
- <!-- <mat-form-field>
-        <mat-label>Joining Date</mat-label>
-        <input matInput [matDatepicker]="picker" 
-            formControlName="joiningDate" 
-            (dateInput)="joiningDate(picker)" 
-            [(ngModel)]="this.modifiedEditedJoiningDate">
-        <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <span class="form-text text-danger" 
-            *ngIf="JoiningDate_Func?.errors?.['required'] 
-                && (JoiningDate_Func?.touched || JoiningDate_Func?.dirty)"></span>
-    </mat-form-field> -->
-
-    <!-- <mat-form-field>
-        <mat-label>Created On</mat-label>
-        <input matInput [matDatepicker]="picker2" 
-            formControlName="createdOn" 
-            (dateInput)="createdDate(picker2)"
-            [(ngModel)]="this.modifiedEditedCreatedDate">
-        <mat-datepicker-toggle matIconSuffix [for]="picker2" ></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-        <span class="form-text text-danger" 
-            *ngIf="CreatedOn_Func?.errors?.['required'] 
-                && (CreatedOn_Func?.touched || CreatedOn_Func?.dirty)"></span>
-    </mat-form-field> -->
- 
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
