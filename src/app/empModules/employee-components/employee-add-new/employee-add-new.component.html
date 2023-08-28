@@ -68,7 +68,7 @@
 
         <div class="btnDiv">
             <button type="submit" mat-raised-button color="primary" [disabled]="addForm.invalid">Submit</button>&nbsp;
-            <button type="reset" mat-raised-button color="warn" id="ClearBtn">Clear</button>
+            <button type="button" mat-raised-button color="warn" id="ClearBtn" (click)="closeWindow()">Close</button>
         </div>
         
     </form>

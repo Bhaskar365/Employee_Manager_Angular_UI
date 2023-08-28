@@ -26,7 +26,6 @@ export class EmployeeAddNewComponent implements OnInit{
       Address: new FormControl('', [Validators.required]),
       Phone : new FormControl('', [Validators.required]),
       JoiningDate : new FormControl('', [Validators.required]),
-      // CreatedOn : new FormControl('', [Validators.required]),
   });
 
   constructor( private http:HttpClient,
@@ -45,6 +44,10 @@ export class EmployeeAddNewComponent implements OnInit{
     let y = moment(x).format('YYYY-MM-DD');
     this.modifiedAddJoiningDate = y;
     console.log(y);
+  }
+
+  closeWindow(){
+      this.dialogRef.close();
   }
 
   formSubmit(){
