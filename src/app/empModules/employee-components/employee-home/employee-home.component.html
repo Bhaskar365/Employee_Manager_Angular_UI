@@ -1,12 +1,12 @@
 <div class="fullPage" [hidden]="isLoading">
   <mat-sidenav-container class="example-container">
 
-    <mat-sidenav #drawer mode="side">
-      <!-- <mat-sidenav #drawer mode="over"> -->
+    <!-- <mat-sidenav #drawer mode="side">
       <mat-list routerLinkActive="/">Home</mat-list>
-      <mat-list routerLink="#">Report 1</mat-list>
+      <mat-list routerLink="/department">Departments</mat-list>
       <mat-list routerLink="#">Report 2</mat-list>
-    </mat-sidenav>
+      <mat-list>Report 3</mat-list>
+    </mat-sidenav> -->
 
     <mat-sidenav-content id="mainTable" *ngIf="employeeDataFromAPI">
       <!---main content---->
@@ -91,7 +91,10 @@
 </div>
 
 <div id="noData" *ngIf="employeeDataFromAPI.length==0">
-  <p><i class="fa fa-meh-o" aria-hidden="true"></i>Oops! No data available.</p>
+  <p>
+    <i class="fa fa-meh-o" aria-hidden="true"></i>
+    Oops! No data available. Register Department First Before Employee Registration
+  </p>
 </div>
 
 <div [hidden]="!isLoading">

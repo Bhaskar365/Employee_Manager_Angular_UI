@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { EmployeeHomeComponent } from './employee-home/employee-home.component';
 import { EmployeeAddNewComponent } from './employee-add-new/employee-add-new.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DepartmentComponent } from '../Departments/department/department.component';
 
 const routes: Routes = [
 
@@ -12,6 +13,7 @@ const routes: Routes = [
       { path : 'employee-home', component: EmployeeHomeComponent  },
       { path : 'add-new-employee', component: EmployeeAddNewComponent },
       { path : 'user-profile', component:ProfileComponent },
+      { path: 'department' , component:DepartmentComponent },
       { path: '', redirectTo: 'employee-home', pathMatch: 'full' }
     ]
   }

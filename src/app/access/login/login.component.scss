@@ -1,3 +1,4 @@
+
 @media screen and (min-width:200px) {
 
     .loader {
@@ -94,5 +95,14 @@
     mat-card {
         max-width: 50% !important;
         left: 25%;
+    }
+}
+
+@media screen and (min-width:1200px) {
+     #btnBox>button{
+      
+        strong{
+           font-size: 13px !important;
+        }
     }
 }

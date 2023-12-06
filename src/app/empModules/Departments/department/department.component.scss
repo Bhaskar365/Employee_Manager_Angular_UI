@@ -1,0 +1,38 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+#addDepartment {
+    flex:0 0 calc(50% - 16px);
+    margin-bottom:15px;
+    max-height: 265px;
+}
+
+#addDepartment{
+    form {
+        height: 260px;
+        mat-card-content{
+            mat-form-field { 
+                display:flex;
+            }
+        }   
+    }
+}
+
+#departmentList{
+    flex:0 0 calc(50% - 16px);
+    margin-bottom:15px;
+}
+
+mat-card-footer{
+        padding: 1rem;
+        button{
+            display: inline-flex;
+            justify-content: space-between;
+            position: relative;
+            margin-left: 5px;
+        }
+    }

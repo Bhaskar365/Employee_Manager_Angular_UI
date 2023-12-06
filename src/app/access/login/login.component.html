@@ -1,5 +1,5 @@
 <span class="loader" [hidden]="spinnerLoading"></span>
-<div class="body" [hidden]="!spinnerLoading">
+<div class="body" [hidden]="!spinnerLoading" id="body">
     <mat-card>
         <mat-card-content>
             <mat-card-header>
@@ -24,17 +24,23 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label><mat-icon>lock</mat-icon>&nbsp;Password</mat-label>
-                    <input matInput placeholder="Password" formControlName="password">
+                    <input matInput placeholder="Password" formControlName="Pwd">
                     <mat-error
-                        *ngIf="loginForm.controls?.['password']?.hasError('required')"><strong>{{getPasswordErrorMessage()}}</strong></mat-error>
+                        *ngIf="loginForm.controls?.['Pwd']?.hasError('required')"><strong>{{getPasswordErrorMessage()}}</strong></mat-error>
 
                 </mat-form-field>
 
                 <span id="btnBox">
-                    <button type="submit" mat-raised-button [disabled]="loginForm.invalid" color="primary" >LOG
-                        IN</button>
-                    <button type="button" mat-raised-button color="accent" (click)="moveToRegister()">Don't
-                        have an Account ? Click to Register</button>
+                    <button type="submit" mat-raised-button 
+                        [disabled]="loginForm.invalid" 
+                        color="primary">
+                            <strong>LOG IN</strong>
+                        </button>
+                    <button type="button" 
+                        mat-raised-button color="accent" 
+                        (click)="moveToRegister()">
+                        <strong>Don't have an Account ? Click to Register</strong>
+                        </button>
                 </span>
 
             </form>

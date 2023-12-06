@@ -27,12 +27,13 @@
 
 <mat-sidenav-container class="example-container">
     <mat-sidenav #drawer mode="side">
-        <mat-list (click)="goHome()"
+        <!-- <mat-list (click)="goHome()"
            routerLinkActive=".mat-list-item-focus" 
-           [routerLinkActiveOptions]="{exact:true}">Home</mat-list>
-    <mat-list routerLink="">Link 1</mat-list>
-    <mat-list routerLink="">Link 2</mat-list>
-    <mat-list routerLink="">Link 3</mat-list>
+           [routerLinkActiveOptions]="{exact:true}">Home</mat-list> -->
+    <mat-list (click)="goHome()" routerLink="employee-home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</mat-list>       
+    <mat-list routerLink="department" routerLinkActive="active">Departments</mat-list>
+    <mat-list routerLink="user-profile" routerLinkActive="active">User Profile</mat-list>
+    <mat-list routerLink="edit" routerLinkActive="active">Link 3</mat-list>
     </mat-sidenav>
     <mat-sidenav-content id="mainContentHome">
         <router-outlet></router-outlet>

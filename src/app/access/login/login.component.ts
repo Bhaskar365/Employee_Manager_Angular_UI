@@ -16,14 +16,14 @@ export class LoginComponent implements OnInit {
   successMsg:boolean = true;
   failMsg:boolean = true;
   reloadingMsg:string = '';
-  spinnerLoading:boolean = true;;
+  spinnerLoading:boolean = true;
 
   constructor(private router:Router,private api:ApiServService){}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required,Validators.email]),
-      password: new FormControl('', [Validators.required])
+      Pwd: new FormControl('', [Validators.required])
     })
   }
 
@@ -36,20 +36,26 @@ export class LoginComponent implements OnInit {
   }
 
   getPasswordErrorMessage(){
-    return this.loginForm.controls?.['password'].hasError('required') ? 'Enter Password' : '';
+    return this.loginForm.controls?.['Pwd'].hasError('required') ? 'Enter Password' : '';
   }
 
   loginFormSubmit()
   {
+   
     this.api.loginInfo([
       this.loginForm.value.email,
-      this.loginForm.value.password
+      this.loginForm.value.Pwd
     ]
     ).subscribe((res:any) => { 
+      // if(res){
+      //   const x = document.getElementById('.body');
+      //   x!.style.display = 'none';
+      // }
       console.log(res);
       this.failMsg = true; 
       if(res == 'Failure') 
       {
+        
         this.responseMsg = 'Wrong Credentials. Refreshing Page';
         this.failMsg = false; 
         console.log(this.responseMsg);

@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit{
     let userInfo = token != null ? this.jwtHelperService.decodeToken(token):null;
     let data =  userInfo;
     this.x = data;
-    this.x = data.name.split(' ').slice(0,1).join(' ');
+    this.x = data.Name.split(' ').slice(0,1).join(' ');
     // console.log(this.x.name.split(' ').slice(0,1).join(' '));
   }
 

@@ -1,0 +1,57 @@
+<body>
+    <p>Departments</p>
+    <hr />
+
+    <div class="card-container">
+        <mat-card id="addDepartment">
+            <form [formGroup]="newDepartment" (ngSubmit)="addNewDepartment()">
+                <mat-card-header>Add Department</mat-card-header>
+                <mat-card-content>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter Department ID</mat-label>
+                        <input matInput placeholder="Type..." formControlName="DepartmentId" />
+                        <mat-error *ngIf="newDepartment.controls?.['DepartmentId']?.hasError('required')">{{getDepartmentIDError()}}</mat-error>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="outline">
+                        <mat-label>Department Name</mat-label>
+                        <input matInput placeholder="Type..." formControlName="DepartmentName" />
+                        <mat-error *ngIf="newDepartment.controls?.['DepartmentName']?.hasError('required')">{{getDepartmentNameError()}}</mat-error>
+                    </mat-form-field>
+                    
+                </mat-card-content>
+                
+                <mat-card-footer>
+                    <button mat-raised-button color="primary" type="submit">Add</button>
+                    <button mat-raised-button color="warn">Cancel</button>
+                </mat-card-footer>
+            </form>
+        </mat-card>
+
+        <mat-card id="departmentList">
+            <mat-card-header>Department List</mat-card-header>
+            <mat-card-content>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Department ID</th>
+                            <th>Department Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let dep of departmentDetails">
+                            <th>{{dep.departmentId}}</th>
+                            <th>{{dep.departmentName}}</th>
+                            <th>
+                                <button mat-raised-button color="primary">Edit</button>
+                                <button mat-raised-button color="warn">Delete</button>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</body>

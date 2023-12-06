@@ -30,6 +30,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgToastModule } from 'ng-angular-popup';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { DepartmentComponent } from './empModules/Departments/department/department.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
+    DepartmentComponent,
 
   ],
   imports: [
