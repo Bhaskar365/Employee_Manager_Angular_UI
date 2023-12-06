@@ -1,6 +1,6 @@
-import { Component , OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup , FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiServService } from 'src/app/services/api-serv.service';
 import { debounceTime, delay } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -11,23 +11,23 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm!:FormGroup;
+  loginForm!: FormGroup;
   responseMsg: any = '';
-  successMsg:boolean = true;
-  failMsg:boolean = true;
-  reloadingMsg:string = '';
-  spinnerLoading:boolean = true;
+  successMsg: boolean = true;
+  failMsg: boolean = true;
+  reloadingMsg: string = '';
+  spinnerLoading: boolean = true;
 
-  constructor(private router:Router,private api:ApiServService){}
+  constructor(private router: Router, private api: ApiServService) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required,Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       Pwd: new FormControl('', [Validators.required])
     })
   }
 
-  getEmailErrorMessage(){
+  getEmailErrorMessage() {
     if (this.loginForm.controls?.['email'].hasError('required')) {
       return 'Enter Email';
     }
@@ -35,80 +35,78 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls?.['email'].hasError('email') ? 'Not a valid email' : '';
   }
 
-  getPasswordErrorMessage(){
+  getPasswordErrorMessage() {
     return this.loginForm.controls?.['Pwd'].hasError('required') ? 'Enter Password' : '';
   }
 
-  loginFormSubmit()
-  {
-   
+  loginFormSubmit() {
+
+    this.spinnerLoading = false;
+
     this.api.loginInfo([
       this.loginForm.value.email,
       this.loginForm.value.Pwd
     ]
-    ).subscribe((res:any) => { 
+    ).subscribe((res: any) => {
       // if(res){
       //   const x = document.getElementById('.body');
       //   x!.style.display = 'none';
       // }
-      console.log(res);
-      this.failMsg = true; 
-      if(res == 'Failure') 
-      {
-        
-        this.responseMsg = 'Wrong Credentials. Refreshing Page';
-        this.failMsg = false; 
-        console.log(this.responseMsg);
-        this.spinnerLoading = true;
+      this.failMsg = true;
+        if (res == 'Failure') {
+          this.responseMsg = 'Wrong Credentials. Refreshing Page';
+          this.failMsg = false;
+          console.log(this.responseMsg);
+          this.spinnerLoading = true;
 
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 1300,
-          timerProgressBar: true,
-        })
-        
-        Toast.fire({
-          icon: 'error',
-          title: 'Credentials Incorrect'
-        })
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1300,
+            timerProgressBar: true,
+          })
 
-        setTimeout(()=>{
+          Toast.fire({
+            icon: 'error',
+            title: 'Credentials Incorrect'
+          })
+
+          setTimeout(() => {
             this.spinnerLoading = false;
             window.location.reload();
-        },1500);
-      }
-      else {
-        this.responseMsg = 'Login Successful';
-        this.successMsg = true; 
-        this.api.setToken(res);
-        this.successMsg = false; 
-        console.log(this.responseMsg);
-        this.spinnerLoading = true;
+          }, 1500);
+        }
+        else {
+          this.responseMsg = 'Login Successful';
+          this.successMsg = true;
+          this.api.setToken(res);
+          this.successMsg = false;
+          console.log(this.responseMsg);
+          this.spinnerLoading = true;
 
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 1300,
-          timerProgressBar: true,
-        })
-        
-        Toast.fire({
-          icon: 'success',
-          title: 'Signed in successfully'
-        })
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1300,
+            timerProgressBar: true,
+          })
 
-        setTimeout(()=>{
-          this.spinnerLoading = false;
-          this.router.navigateByUrl('employee/employee-home');
-        },1500); 
-      }
-    });  
+          Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
+          })
+
+          setTimeout(() => {
+            this.spinnerLoading = false;
+            this.router.navigateByUrl('employee/employee-home');
+          }, 1500);
+        }
+      });
   }
 
-  moveToRegister(){
+  moveToRegister() {
     this.router.navigateByUrl('/register');
   }
 }
