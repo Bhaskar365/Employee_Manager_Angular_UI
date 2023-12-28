@@ -1,13 +1,6 @@
 <div class="fullPage" [hidden]="isLoading">
   <mat-sidenav-container class="example-container">
 
-    <!-- <mat-sidenav #drawer mode="side">
-      <mat-list routerLinkActive="/">Home</mat-list>
-      <mat-list routerLink="/department">Departments</mat-list>
-      <mat-list routerLink="#">Report 2</mat-list>
-      <mat-list>Report 3</mat-list>
-    </mat-sidenav> -->
-
     <mat-sidenav-content id="mainTable" *ngIf="employeeDataFromAPI">
       <!---main content---->
       <div class="body" id="content" #content>
@@ -28,6 +21,7 @@
             &nbsp;
             <strong matTooltip="Click to Add New">Add New Employee</strong>
           </span>
+          
           <div id="actionIcons">
             <!-- <span id="pdfSpan" (click)="printPage()">
               <img src="assets/printer.png" alt="printer_logo" id="printerLogo" matTooltip="Print" />

@@ -8,13 +8,20 @@
     <form [formGroup]="addForm" (ngSubmit)="formSubmit()">
 
         <mat-form-field appearance="outline">
-            <mat-label>Full Name</mat-label>    
-            <input matInput formControlName="Name" placeholder="Enter Name.."/>
-            <mat-error *ngIf="addForm.controls?.['Name']?.hasError('required')">
-                {{getNameErrorMessage()}}
+            <mat-label>First Name</mat-label>    
+            <input matInput formControlName="FirstName" placeholder="Enter First Name.."/>
+            <mat-error *ngIf="addForm.controls?.['FirstName']?.hasError('required')">
+                {{getFirstNameErrorMessage()}}
             </mat-error>
         </mat-form-field>
-        
+
+        <mat-form-field appearance="outline">
+            <mat-label>LastName</mat-label>    
+            <input matInput formControlName="LastName" placeholder="Enter Last Name.."/>
+            <mat-error *ngIf="addForm.controls?.['LastName']?.hasError('required')">
+                {{getLastNameErrorMessage()}}
+            </mat-error>
+        </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>    
@@ -38,13 +45,37 @@
         </mat-form-field> 
         
         <mat-form-field appearance="outline">
-            <mat-label>Address</mat-label>    
-            <input matInput formControlName="Address" placeholder="Enter Address.."/>
-            <mat-error *ngIf="addForm.controls?.['Address']?.hasError('required')">
-                {{getAddressErrorMessage()}}
+            <mat-label>City</mat-label>    
+            <input matInput formControlName="City" placeholder="Enter City.."/>
+            <mat-error *ngIf="addForm.controls?.['City']?.hasError('required')">
+                {{getCityErrorMessage()}}
             </mat-error>
         </mat-form-field>  
 
+        <mat-form-field appearance="outline">
+            <mat-label>State</mat-label>    
+            <input matInput formControlName="State" placeholder="Enter State.."/>
+            <mat-error *ngIf="addForm.controls?.['State']?.hasError('required')">
+                {{getStateErrorMessage()}}
+            </mat-error>
+        </mat-form-field>  
+
+        <mat-form-field appearance="outline">
+            <mat-label>Country</mat-label>    
+            <input matInput formControlName="Country" placeholder="Enter Address.."/>
+            <mat-error *ngIf="addForm.controls?.['Country']?.hasError('required')">
+                {{getStateErrorMessage()}}
+            </mat-error>
+        </mat-form-field>  
+
+        <mat-form-field appearance="outline">
+            <mat-label>ZipCode</mat-label>    
+            <input matInput formControlName="ZipCode" placeholder="Enter ZipCode.."/>
+            <mat-error *ngIf="addForm.controls?.['ZipCode']?.hasError('required')">
+                {{getZipCodeErrorMessage()}}
+            </mat-error>
+        </mat-form-field> 
+        
         <mat-form-field appearance="outline">
             <mat-label>Phone</mat-label>    
             <input matInput formControlName="Phone" placeholder="Enter Phone.."/>
@@ -53,21 +84,71 @@
             </mat-error>
         </mat-form-field> 
         
+        <!--------Department Name-------->
         <mat-form-field appearance="outline">
-            <mat-label>Joining Date</mat-label>
+            <mat-label>Department Name</mat-label>
+            <mat-select formControlName="DepartmentId">
+                <mat-option *ngFor="let department of departmentList" [value]="department.departmentId">
+                    {{ department.departmentName }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addForm.controls?.['DepartmentId']?.hasError('required')">
+                {{getDepartmentErrorMessage()}}
+            </mat-error>
+        </mat-form-field>
+
+        <!---------Department ID--------->
+        <mat-form-field appearance="outline">
+            <mat-label>Department ID</mat-label>
+            <input matInput [value]="addForm.controls['DepartmentId'].value" readonly/>
+          </mat-form-field>
+       
+
+          <mat-form-field appearance="outline">
+            <mat-label>Position</mat-label>    
+            <input matInput formControlName="Position" placeholder="Enter Position.."/>
+            <mat-error *ngIf="addForm.controls?.['Position']?.hasError('required')">
+                {{getCTCErrorMessage()}}
+            </mat-error>
+        </mat-form-field> 
+
+        <mat-form-field appearance="outline">
+            <mat-label>Date Of Hire</mat-label>
             <input matInput [matDatepicker]="picker" 
-                formControlName="JoiningDate" (dateInput)="joiningDate(picker)" 
+                formControlName="DateOfHire" (dateInput)="joiningDate(picker)" 
                     [(ngModel)]="this.modifiedAddJoiningDate">
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-hint>M/DD/YYYY</mat-hint>
-            <mat-error *ngIf="addForm.controls?.['JoiningDate']?.hasError('required')">
+            <mat-error *ngIf="addForm.controls?.['DateOfHire']?.hasError('required')">
                 {{getJoiningDateErrorMessage()}}
             </mat-error>
         </mat-form-field>
 
+        <mat-form-field appearance="outline">
+            <mat-label>CTC</mat-label>    
+            <input matInput formControlName="CTC" placeholder="Enter CTC.."/>
+            <mat-error *ngIf="addForm.controls?.['CTC']?.hasError('required')">
+                {{getCTCErrorMessage()}}
+            </mat-error>
+        </mat-form-field> 
+
+        
+        <mat-form-field appearance="outline">
+            <mat-label>User Image</mat-label>    
+            <input matInput formControlName="UserImage" placeholder="Enter Image.." />
+            <mat-error *ngIf="addForm.controls?.['UserImage']?.hasError('required')">
+                {{getUserImageErrorMessage()}}
+            </mat-error>
+        </mat-form-field> 
+
+        <div formGroupName="_Department">
+            <input type="hidden" formControlName="DepartmentId">
+            <input type="hidden" formControlName="DepartmentName">
+          </div>        
+
         <div class="btnDiv">
-            <button type="submit" mat-raised-button color="primary" [disabled]="addForm.invalid">Submit</button>&nbsp;
+            <button type="submit" mat-raised-button color="primary" [disabled]="!addForm.invalid">Submit</button>&nbsp;
             <button type="button" mat-raised-button color="warn" id="ClearBtn" (click)="closeWindow()">Close</button>
         </div>
         

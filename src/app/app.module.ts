@@ -28,7 +28,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
-import { NgToastModule } from 'ng-angular-popup';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DepartmentComponent } from './empModules/Departments/department/department.component';
 
@@ -68,7 +67,6 @@ import { DepartmentComponent } from './empModules/Departments/department/departm
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
-    NgToastModule,
     MatTooltipModule
   ],
   providers: [],

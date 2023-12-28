@@ -1,3 +1,7 @@
+export interface Department {
+    DepartmentId:number;
+    DepartmentName:string | null|undefined ;
+}
 
 export interface Employee 
 {
@@ -5,12 +9,13 @@ export interface Employee
     LastName:string;
     Email:string;
     Gender:string;
-    Address:string;
+    Country:string;
     City:string;
     State:string;
     ZipCode:string;
     Phone:string;
     DepartmentId:string;
+    _Department:Department;
     Position:string;
     DateOfHire:string;
     CTC:string;
@@ -34,10 +39,7 @@ export interface CreateEmp{
     userImage:string;
 }
 
-export interface Department {
-    DepartmentId:number;
-    DepartmentName:string | null|undefined ;
-}
+
 
 export interface UpdateEmp {
     UserID:string;
