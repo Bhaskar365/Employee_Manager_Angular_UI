@@ -20,6 +20,9 @@ export class EmployeeAddNewComponent implements OnInit {
   departmentID: any = [];
   departmentName: any = [];
 
+  departmentIDValue:any;
+  departmentNameValue:any;
+
   selectDeptValue!: string;
 
   x: any;
@@ -39,7 +42,6 @@ export class EmployeeAddNewComponent implements OnInit {
     Position: new FormControl('', [Validators.required]),
     DateOfHire: new FormControl('', [Validators.required]),
     CTC: new FormControl('', [Validators.required]),
-    UserImage: new FormControl('', [Validators.required]),
     _Department: new FormGroup({
       DepartmentId: new FormControl('', [Validators.required]),
       DepartmentName: new FormControl('', [Validators.required]),
@@ -80,6 +82,9 @@ export class EmployeeAddNewComponent implements OnInit {
       // Find the corresponding DepartmentName based on the selected department id
       const selectedDepartment = this.departmentList.find((dep: any) => dep.departmentId === selectedDepartmentId);
     
+      this.departmentIDValue = selectedDepartment.departmentId;
+      this.departmentNameValue = selectedDepartment.departmentName
+
       // Update the _Department FormGroup in the form
       if (selectedDepartment) {
         this.addForm.patchValue({
@@ -107,36 +112,34 @@ export class EmployeeAddNewComponent implements OnInit {
 
     this.x = this.addForm.value as string;
 
-    console.log(this.x)
-    console.log('Form validity:', this.addForm.valid);
-
-    // this.serv.createNewEmployee(this.x).pipe(catchError((err)=>{
-    //   console.log(err);
-    //   // this.dialogRef.close();
-    //   //sweetalert error notif
-    //   // Swal.fire({
-    //   //   title: 'Create Unsuccessful',
-    //   //   text: 'Error Creating New Employee!',
-    //   //   icon: 'error',
-    //   //   width:'800px',
-    //   //   timer: 1500,
-    //   //   timerProgressBar: true
-    //   // });
-    //   return err;
-    // })).subscribe(res=> {
-    //   //   this.dialogRef.close();
-    //   //    //sweetalert success notif
-    //   //    Swal.fire({
-    //   //     title: 'Added Successfully',
-    //   //     text: 'Adding New Employee Successfully ',
-    //   //     icon: 'success',
-    //   //     width:'800px',
-    //   //     timer:1500,
-    //   //     timerProgressBar:true,
-    //   // })
-    //     this.router.navigate(['/homepage']);
-    //     // window.location.reload();    
-    //   }); 
+    this.serv.createNewEmployee(this.x).pipe(catchError((err)=>{
+      console.log(err);
+      // this.dialogRef.close();
+      //sweetalert error notif
+      // Swal.fire({
+      //   title: 'Create Unsuccessful',
+      //   text: 'Error Creating New Employee!',
+      //   icon: 'error',
+      //   width:'800px',
+      //   timer: 1500,
+      //   timerProgressBar: true
+      // });
+      return err;
+    })).subscribe(res=> {
+        console.log(res);
+      //   this.dialogRef.close();
+      //    //sweetalert success notif
+      //    Swal.fire({
+      //     title: 'Added Successfully',
+      //     text: 'Adding New Employee Successfully ',
+      //     icon: 'success',
+      //     width:'800px',
+      //     timer:1500,
+      //     timerProgressBar:true,
+      // })
+        // this.router.navigate(['/homepage']);
+        // window.location.reload();    
+      }); 
   }
 
   get FirstName_Val() {
@@ -190,11 +193,6 @@ export class EmployeeAddNewComponent implements OnInit {
   get CTC_Val() {
     return this.addForm.get('CTC');
   }
-
-  get UserImage_Val() {
-    return this.addForm.get('UserImage');
-  }
-
 
   getFirstNameErrorMessage() {
     return this.addForm.controls?.['FirstName'].hasError('required') ? 'Enter First Name' : '';
@@ -250,9 +248,4 @@ export class EmployeeAddNewComponent implements OnInit {
   getCTCErrorMessage() {
     return this.addForm.controls?.['CTC'].hasError('required') ? 'Enter CTC' : '';
   }
-
-  getUserImageErrorMessage() {
-    return this.addForm.controls?.['UserImage'].hasError('required') ? 'Select Image' : '';
-  }
-
 }

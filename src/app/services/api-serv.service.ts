@@ -88,7 +88,13 @@ export class ApiServService {
   }
 
   createNewEmployee(form:CreateEmp){
-    return this.http.post(this.APICreate,form);
+    console.log('create form')
+    debugger;
+    return this.http.post(this.APICreate,form).pipe(catchError((err)=>{
+      debugger;
+      console.log("error : ",err)
+      return err;
+    }));
   }
 
   updateEmployees(id:any,data:any) : Observable<Object>{

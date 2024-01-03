@@ -133,22 +133,13 @@
             </mat-error>
         </mat-form-field> 
 
-        
-        <mat-form-field appearance="outline">
-            <mat-label>User Image</mat-label>    
-            <input matInput formControlName="UserImage" placeholder="Enter Image.." />
-            <mat-error *ngIf="addForm.controls?.['UserImage']?.hasError('required')">
-                {{getUserImageErrorMessage()}}
-            </mat-error>
-        </mat-form-field> 
-
         <div formGroupName="_Department">
-            <input type="hidden" formControlName="DepartmentId">
-            <input type="hidden" formControlName="DepartmentName">
+            <input type="hidden" formControlName="DepartmentId" [value]="this.departmentIDValue">
+            <input type="hidden" formControlName="DepartmentName" [value]="this.departmentNameValue">
           </div>        
 
         <div class="btnDiv">
-            <button type="submit" mat-raised-button color="primary" [disabled]="!addForm.invalid">Submit</button>&nbsp;
+            <button type="submit" mat-raised-button color="primary" [disabled]="addForm.invalid">Submit</button>&nbsp;
             <button type="button" mat-raised-button color="warn" id="ClearBtn" (click)="closeWindow()">Close</button>
         </div>
         

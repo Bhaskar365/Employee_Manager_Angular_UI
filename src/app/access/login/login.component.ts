@@ -48,13 +48,9 @@ export class LoginComponent implements OnInit {
       this.loginForm.value.Pwd
     ]
     ).subscribe((res: any) => {
-      // if(res){
-      //   const x = document.getElementById('.body');
-      //   x!.style.display = 'none';
-      // }
       this.failMsg = true;
         if (res == 'Failure') {
-          this.responseMsg = 'Wrong Credentials. Refreshing Page';
+          this.responseMsg = 'Wrong Credentials. Try Again';
           this.failMsg = false;
           console.log(this.responseMsg);
           this.spinnerLoading = true;
@@ -71,11 +67,6 @@ export class LoginComponent implements OnInit {
             icon: 'error',
             title: 'Credentials Incorrect'
           })
-
-          setTimeout(() => {
-            this.spinnerLoading = false;
-            window.location.reload();
-          }, 1500);
         }
         else {
           this.responseMsg = 'Login Successful';
